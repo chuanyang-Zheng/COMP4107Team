@@ -1,64 +1,812 @@
-200318-02:49:06 [INFO] -- 
-200318-02:49:06 [INFO] -- 
-200318-02:49:06 [INFO] -- ============================================================
-200318-02:49:06 [INFO] -- PCSStarter: Application Starting...
-200318-02:49:07 [FINE] -- PCSStarter: registering timer
-200318-02:49:07 [FINE] -- timer: created!
-200318-02:49:07 [FINE] -- PCSStarter: registering PCSCore
-200318-02:49:07 [FINE] -- PCSCore: created!
-200318-02:49:07 [FINE] -- PCSStarter: registering GateHandler
-200318-02:49:07 [FINE] -- GateHandler: created!
-200318-02:49:08 [INFO] -- timer: starting...
-200318-02:49:08 [INFO] -- GateHandler: starting...
-200318-02:49:08 [INFO] -- PCSCore: starting...
-200318-02:49:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
-200318-02:49:13 [INFO] -- ------------------------------------------------------------
-200318-02:49:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
-200318-02:49:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
-200318-02:49:13 [INFO] -- GateHandler: gate open request received
-200318-02:49:13 [INFO] -- GateHandler: send signal to open the gate now.
-200318-02:49:13 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is on]
-200318-02:49:13 [FINE] -- GateHandlerEmulator: Gate open timer started.
-200318-02:49:13 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
-200318-02:49:15 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00001 0].
-200318-02:49:15 [FINE] -- GateHandlerEmulator: Times up received.
-200318-02:49:15 [FINE] -- GateHandlerEmulator: Gate open timer is up.  [autoOpen is on]
-200318-02:49:15 [FINE] -- GateHandlerEmulator: Send gate open reply
-200318-02:49:15 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenReply) -- Gate Open Reply].
-200318-02:49:15 [INFO] -- GateHandler: gate open reply received
-200318-02:49:15 [INFO] -- GateHandler: inform PCS Core that gate has finished opening.
-200318-02:49:15 [FINE] -- GateHandler: gate status change: GateOpening --> GateOpened
-200318-02:49:15 [FINE] -- PCSCore: message received: [GateHandler (GateOpenReply) -- ].
-200318-02:49:15 [INFO] -- PCSCore: Gate is opened.
-200318-02:49:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
-200318-02:49:18 [INFO] -- ------------------------------------------------------------
-200318-02:49:18 [INFO] -- PCSCore: Close the gate now (for demo only!!!)
-200318-02:49:18 [FINE] -- GateHandler: message received: [PCSCore (GateCloseRequest) -- ].
-200318-02:49:18 [INFO] -- GateHandler: gate close request received
-200318-02:49:18 [INFO] -- GateHandler: send signal to close the gate now.
-200318-02:49:18 [FINE] -- GateHandlerEmulator: Gate close signal received.  [autoClose is on]
-200318-02:49:18 [FINE] -- GateHandlerEmulator: Gate close timer started.
-200318-02:49:18 [FINE] -- GateHandler: gate status change: GateOpened --> GateClosing
-200318-02:49:19 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00002 0].
-200318-02:49:19 [FINE] -- GateHandlerEmulator: Times up received.
-200318-02:49:19 [FINE] -- GateHandlerEmulator: Gate close timer is up.  [autoClose is on]
-200318-02:49:19 [FINE] -- GateHandlerEmulator: Send gate close reply
-200318-02:49:19 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateCloseReply) -- Gate Close Reply].
-200318-02:49:19 [INFO] -- GateHandler: gate close reply received
-200318-02:49:19 [INFO] -- GateHandler: inform PCS Core that gate has finished closing.
-200318-02:49:19 [FINE] -- PCSCore: message received: [GateHandler (GateCloseReply) -- ].
-200318-02:49:19 [FINE] -- GateHandler: gate status change: GateClosing --> GateClosed
-200318-02:49:19 [INFO] -- PCSCore: Gate is closed.
-200318-02:49:19 [INFO] -- 
-200318-02:49:19 [INFO] -- 
-200318-02:49:19 [INFO] -- ============================================================
-200318-02:49:19 [INFO] -- PCSStarter: Application Stopping...
-200318-02:49:19 [FINE] -- GateHandler: message received: [PCSStarter (Terminate) -- Terminate now!].
-200318-02:49:19 [INFO] -- timer: received terminate!
-200318-02:49:19 [FINE] -- PCSCore: message received: [PCSStarter (Terminate) -- Terminate now!].
-200318-02:49:19 [FINE] -- PCSStarter: unregistering GateHandler
-200318-02:49:19 [FINE] -- PCSStarter: unregistering PCSCore
-200318-02:49:19 [INFO] -- PCSCore: terminating...
-200318-02:49:19 [FINE] -- PCSStarter: unregistering timer
-200318-02:49:19 [INFO] -- GateHandler: terminating...
-200318-02:49:19 [INFO] -- timer: terminating...
+200322-21:41:30 [INFO] -- 
+200322-21:41:30 [INFO] -- 
+200322-21:41:30 [INFO] -- ============================================================
+200322-21:41:30 [INFO] -- PCSStarter: Application Starting...
+200322-21:41:31 [FINE] -- PCSStarter: registering timer
+200322-21:41:31 [FINE] -- timer: created!
+200322-21:41:31 [FINE] -- PCSStarter: registering PCSCore
+200322-21:41:31 [FINE] -- PCSCore: created!
+200322-21:41:31 [FINE] -- PCSStarter: registering GateHandler
+200322-21:41:31 [FINE] -- GateHandler: created!
+200322-21:41:33 [INFO] -- timer: starting...
+200322-21:41:33 [INFO] -- GateHandler: starting...
+200322-21:41:33 [INFO] -- PCSCore: starting...
+200322-21:41:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:41:38 [INFO] -- ------------------------------------------------------------
+200322-21:41:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:41:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:41:38 [INFO] -- GateHandler: gate open request received
+200322-21:41:38 [INFO] -- GateHandler: send signal to open the gate now.
+200322-21:41:38 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is on]
+200322-21:41:38 [FINE] -- GateHandlerEmulator: Gate open timer started.
+200322-21:41:38 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
+200322-21:41:40 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:41:40 [FINE] -- GateHandlerEmulator: Times up received.
+200322-21:41:40 [FINE] -- GateHandlerEmulator: Gate open timer is up.  [autoOpen is on]
+200322-21:41:40 [FINE] -- GateHandlerEmulator: Send gate open reply
+200322-21:41:40 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenReply) -- Gate Open Reply].
+200322-21:41:40 [INFO] -- GateHandler: gate open reply received
+200322-21:41:40 [INFO] -- GateHandler: inform PCS Core that gate has finished opening.
+200322-21:41:40 [FINE] -- GateHandler: gate status change: GateOpening --> GateOpened
+200322-21:41:40 [FINE] -- PCSCore: message received: [GateHandler (GateOpenReply) -- ].
+200322-21:41:40 [INFO] -- PCSCore: Gate is opened.
+200322-21:41:41 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateEmulatorAutoOpenToggle) -- ToggleAutoOpen].
+200322-21:41:41 [FINE] -- GateHandlerEmulator: Auto open change: on --> off
+200322-21:41:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:41:43 [INFO] -- ------------------------------------------------------------
+200322-21:41:43 [INFO] -- PCSCore: Close the gate now (for demo only!!!)
+200322-21:41:43 [FINE] -- GateHandler: message received: [PCSCore (GateCloseRequest) -- ].
+200322-21:41:43 [INFO] -- GateHandler: gate close request received
+200322-21:41:43 [INFO] -- GateHandler: send signal to close the gate now.
+200322-21:41:43 [FINE] -- GateHandlerEmulator: Gate close signal received.  [autoClose is on]
+200322-21:41:43 [FINE] -- GateHandlerEmulator: Gate close timer started.
+200322-21:41:43 [FINE] -- GateHandler: gate status change: GateOpened --> GateClosing
+200322-21:41:44 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:41:44 [FINE] -- GateHandlerEmulator: Times up received.
+200322-21:41:44 [FINE] -- GateHandlerEmulator: Gate close timer is up.  [autoClose is on]
+200322-21:41:44 [FINE] -- GateHandlerEmulator: Send gate close reply
+200322-21:41:44 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateCloseReply) -- Gate Close Reply].
+200322-21:41:44 [INFO] -- GateHandler: gate close reply received
+200322-21:41:44 [INFO] -- GateHandler: inform PCS Core that gate has finished closing.
+200322-21:41:44 [FINE] -- GateHandler: gate status change: GateClosing --> GateClosed
+200322-21:41:44 [FINE] -- PCSCore: message received: [GateHandler (GateCloseReply) -- ].
+200322-21:41:44 [INFO] -- PCSCore: Gate is closed.
+200322-21:41:46 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenRequest) -- GateOpenReq].
+200322-21:41:46 [INFO] -- GateHandler: gate open request received
+200322-21:41:46 [INFO] -- GateHandler: send signal to open the gate now.
+200322-21:41:46 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is off]
+200322-21:41:46 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
+200322-21:41:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:41:48 [INFO] -- ------------------------------------------------------------
+200322-21:41:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:41:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:41:48 [INFO] -- GateHandler: gate open request received
+200322-21:41:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:41:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:41:53 [INFO] -- ------------------------------------------------------------
+200322-21:41:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:41:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:41:53 [INFO] -- GateHandler: gate open request received
+200322-21:41:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:41:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:41:58 [INFO] -- ------------------------------------------------------------
+200322-21:41:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:41:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:41:58 [INFO] -- GateHandler: gate open request received
+200322-21:41:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:03 [INFO] -- ------------------------------------------------------------
+200322-21:42:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:03 [INFO] -- GateHandler: gate open request received
+200322-21:42:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:04 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenRequest) -- GateOpenReq].
+200322-21:42:04 [INFO] -- GateHandler: gate open request received
+200322-21:42:04 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:08 [INFO] -- ------------------------------------------------------------
+200322-21:42:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:08 [INFO] -- GateHandler: gate open request received
+200322-21:42:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:13 [INFO] -- ------------------------------------------------------------
+200322-21:42:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:13 [INFO] -- GateHandler: gate open request received
+200322-21:42:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:18 [INFO] -- ------------------------------------------------------------
+200322-21:42:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:18 [INFO] -- GateHandler: gate open request received
+200322-21:42:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:23 [INFO] -- ------------------------------------------------------------
+200322-21:42:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:23 [INFO] -- GateHandler: gate open request received
+200322-21:42:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:28 [INFO] -- ------------------------------------------------------------
+200322-21:42:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:28 [INFO] -- GateHandler: gate open request received
+200322-21:42:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:42:33 [INFO] -- ------------------------------------------------------------
+200322-21:42:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:42:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:42:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:42:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:42:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:42:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:42:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:42:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:42:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:42:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:33 [INFO] -- ------------------------------------------------------------
+200322-21:42:33 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:33 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:33 [INFO] -- GateHandler: gate open request received
+200322-21:42:33 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:38 [INFO] -- ------------------------------------------------------------
+200322-21:42:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:38 [INFO] -- GateHandler: gate open request received
+200322-21:42:38 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:43 [INFO] -- ------------------------------------------------------------
+200322-21:42:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:43 [INFO] -- GateHandler: gate open request received
+200322-21:42:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:48 [INFO] -- ------------------------------------------------------------
+200322-21:42:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:48 [INFO] -- GateHandler: gate open request received
+200322-21:42:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:53 [INFO] -- ------------------------------------------------------------
+200322-21:42:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:53 [INFO] -- GateHandler: gate open request received
+200322-21:42:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:42:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:42:58 [INFO] -- ------------------------------------------------------------
+200322-21:42:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:42:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:42:58 [INFO] -- GateHandler: gate open request received
+200322-21:42:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:03 [INFO] -- ------------------------------------------------------------
+200322-21:43:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:03 [INFO] -- GateHandler: gate open request received
+200322-21:43:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:08 [INFO] -- ------------------------------------------------------------
+200322-21:43:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:08 [INFO] -- GateHandler: gate open request received
+200322-21:43:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:13 [INFO] -- ------------------------------------------------------------
+200322-21:43:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:13 [INFO] -- GateHandler: gate open request received
+200322-21:43:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:18 [INFO] -- ------------------------------------------------------------
+200322-21:43:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:18 [INFO] -- GateHandler: gate open request received
+200322-21:43:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:23 [INFO] -- ------------------------------------------------------------
+200322-21:43:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:23 [INFO] -- GateHandler: gate open request received
+200322-21:43:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:28 [INFO] -- ------------------------------------------------------------
+200322-21:43:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:28 [INFO] -- GateHandler: gate open request received
+200322-21:43:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:43:33 [INFO] -- ------------------------------------------------------------
+200322-21:43:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:43:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:43:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:43:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:43:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:43:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:43:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:43:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:43:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:43:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:33 [INFO] -- ------------------------------------------------------------
+200322-21:43:33 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:33 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:33 [INFO] -- GateHandler: gate open request received
+200322-21:43:33 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:38 [INFO] -- ------------------------------------------------------------
+200322-21:43:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:38 [INFO] -- GateHandler: gate open request received
+200322-21:43:38 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:43 [INFO] -- ------------------------------------------------------------
+200322-21:43:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:43 [INFO] -- GateHandler: gate open request received
+200322-21:43:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:48 [INFO] -- ------------------------------------------------------------
+200322-21:43:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:48 [INFO] -- GateHandler: gate open request received
+200322-21:43:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:53 [INFO] -- ------------------------------------------------------------
+200322-21:43:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:53 [INFO] -- GateHandler: gate open request received
+200322-21:43:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:43:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:43:58 [INFO] -- ------------------------------------------------------------
+200322-21:43:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:43:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:43:58 [INFO] -- GateHandler: gate open request received
+200322-21:43:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:03 [INFO] -- ------------------------------------------------------------
+200322-21:44:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:03 [INFO] -- GateHandler: gate open request received
+200322-21:44:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:08 [INFO] -- ------------------------------------------------------------
+200322-21:44:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:08 [INFO] -- GateHandler: gate open request received
+200322-21:44:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:13 [INFO] -- ------------------------------------------------------------
+200322-21:44:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:13 [INFO] -- GateHandler: gate open request received
+200322-21:44:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:18 [INFO] -- ------------------------------------------------------------
+200322-21:44:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:18 [INFO] -- GateHandler: gate open request received
+200322-21:44:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:23 [INFO] -- ------------------------------------------------------------
+200322-21:44:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:23 [INFO] -- GateHandler: gate open request received
+200322-21:44:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:28 [INFO] -- ------------------------------------------------------------
+200322-21:44:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:28 [INFO] -- GateHandler: gate open request received
+200322-21:44:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:44:33 [INFO] -- ------------------------------------------------------------
+200322-21:44:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:44:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:44:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:44:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:44:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:44:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:44:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:44:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:44:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:44:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:33 [INFO] -- ------------------------------------------------------------
+200322-21:44:33 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:33 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:33 [INFO] -- GateHandler: gate open request received
+200322-21:44:33 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:38 [INFO] -- ------------------------------------------------------------
+200322-21:44:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:38 [INFO] -- GateHandler: gate open request received
+200322-21:44:38 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:43 [INFO] -- ------------------------------------------------------------
+200322-21:44:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:43 [INFO] -- GateHandler: gate open request received
+200322-21:44:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:48 [INFO] -- ------------------------------------------------------------
+200322-21:44:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:48 [INFO] -- GateHandler: gate open request received
+200322-21:44:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:53 [INFO] -- ------------------------------------------------------------
+200322-21:44:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:53 [INFO] -- GateHandler: gate open request received
+200322-21:44:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:44:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:44:58 [INFO] -- ------------------------------------------------------------
+200322-21:44:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:44:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:44:58 [INFO] -- GateHandler: gate open request received
+200322-21:44:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:03 [INFO] -- ------------------------------------------------------------
+200322-21:45:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:03 [INFO] -- GateHandler: gate open request received
+200322-21:45:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:08 [INFO] -- ------------------------------------------------------------
+200322-21:45:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:08 [INFO] -- GateHandler: gate open request received
+200322-21:45:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:13 [INFO] -- ------------------------------------------------------------
+200322-21:45:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:13 [INFO] -- GateHandler: gate open request received
+200322-21:45:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:18 [INFO] -- ------------------------------------------------------------
+200322-21:45:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:18 [INFO] -- GateHandler: gate open request received
+200322-21:45:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:23 [INFO] -- ------------------------------------------------------------
+200322-21:45:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:23 [INFO] -- GateHandler: gate open request received
+200322-21:45:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:28 [INFO] -- ------------------------------------------------------------
+200322-21:45:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:28 [INFO] -- GateHandler: gate open request received
+200322-21:45:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:30 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenReply) -- GateOpenReply].
+200322-21:45:30 [INFO] -- GateHandler: gate open reply received
+200322-21:45:30 [INFO] -- GateHandler: inform PCS Core that gate has finished opening.
+200322-21:45:30 [FINE] -- GateHandler: gate status change: GateOpening --> GateOpened
+200322-21:45:30 [FINE] -- PCSCore: message received: [GateHandler (GateOpenReply) -- ].
+200322-21:45:30 [INFO] -- PCSCore: Gate is opened.
+200322-21:45:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:45:33 [INFO] -- ------------------------------------------------------------
+200322-21:45:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:45:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:45:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:45:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:45:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:45:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:45:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:45:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:45:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:45:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:33 [INFO] -- ------------------------------------------------------------
+200322-21:45:33 [INFO] -- PCSCore: Close the gate now (for demo only!!!)
+200322-21:45:33 [FINE] -- GateHandler: message received: [PCSCore (GateCloseRequest) -- ].
+200322-21:45:33 [INFO] -- GateHandler: gate close request received
+200322-21:45:33 [INFO] -- GateHandler: send signal to close the gate now.
+200322-21:45:33 [FINE] -- GateHandlerEmulator: Gate close signal received.  [autoClose is on]
+200322-21:45:33 [FINE] -- GateHandlerEmulator: Gate close timer started.
+200322-21:45:33 [FINE] -- GateHandler: gate status change: GateOpened --> GateClosing
+200322-21:45:34 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:34 [FINE] -- GateHandlerEmulator: Times up received.
+200322-21:45:34 [FINE] -- GateHandlerEmulator: Gate close timer is up.  [autoClose is on]
+200322-21:45:34 [FINE] -- GateHandlerEmulator: Send gate close reply
+200322-21:45:34 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateCloseReply) -- Gate Close Reply].
+200322-21:45:34 [INFO] -- GateHandler: gate close reply received
+200322-21:45:34 [INFO] -- GateHandler: inform PCS Core that gate has finished closing.
+200322-21:45:34 [FINE] -- GateHandler: gate status change: GateClosing --> GateClosed
+200322-21:45:34 [FINE] -- PCSCore: message received: [GateHandler (GateCloseReply) -- ].
+200322-21:45:34 [INFO] -- PCSCore: Gate is closed.
+200322-21:45:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:38 [INFO] -- ------------------------------------------------------------
+200322-21:45:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:38 [INFO] -- GateHandler: gate open request received
+200322-21:45:38 [INFO] -- GateHandler: send signal to open the gate now.
+200322-21:45:38 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is off]
+200322-21:45:38 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
+200322-21:45:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:43 [INFO] -- ------------------------------------------------------------
+200322-21:45:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:43 [INFO] -- GateHandler: gate open request received
+200322-21:45:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:48 [INFO] -- ------------------------------------------------------------
+200322-21:45:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:48 [INFO] -- GateHandler: gate open request received
+200322-21:45:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:51 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateCloseReply) -- GateCloseReply].
+200322-21:45:51 [INFO] -- GateHandler: gate close reply received
+200322-21:45:51 [WARNING] -- GateHandler: gate should be opening!!  *** CHK ***
+200322-21:45:52 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenRequest) -- GateOpenReq].
+200322-21:45:52 [INFO] -- GateHandler: gate open request received
+200322-21:45:52 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:53 [INFO] -- ------------------------------------------------------------
+200322-21:45:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:53 [INFO] -- GateHandler: gate open request received
+200322-21:45:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:54 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateCloseReply) -- GateCloseReply].
+200322-21:45:54 [INFO] -- GateHandler: gate close reply received
+200322-21:45:54 [WARNING] -- GateHandler: gate should be opening!!  *** CHK ***
+200322-21:45:54 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenRequest) -- GateOpenReq].
+200322-21:45:54 [INFO] -- GateHandler: gate open request received
+200322-21:45:54 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:45:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:45:58 [INFO] -- ------------------------------------------------------------
+200322-21:45:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:45:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:45:58 [INFO] -- GateHandler: gate open request received
+200322-21:45:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:03 [INFO] -- ------------------------------------------------------------
+200322-21:46:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:03 [INFO] -- GateHandler: gate open request received
+200322-21:46:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:08 [INFO] -- ------------------------------------------------------------
+200322-21:46:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:08 [INFO] -- GateHandler: gate open request received
+200322-21:46:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:13 [INFO] -- ------------------------------------------------------------
+200322-21:46:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:13 [INFO] -- GateHandler: gate open request received
+200322-21:46:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:18 [INFO] -- ------------------------------------------------------------
+200322-21:46:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:18 [INFO] -- GateHandler: gate open request received
+200322-21:46:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:23 [INFO] -- ------------------------------------------------------------
+200322-21:46:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:23 [INFO] -- GateHandler: gate open request received
+200322-21:46:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:28 [INFO] -- ------------------------------------------------------------
+200322-21:46:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:28 [INFO] -- GateHandler: gate open request received
+200322-21:46:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:46:33 [INFO] -- ------------------------------------------------------------
+200322-21:46:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:46:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:46:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:46:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:46:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:46:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:46:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:46:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:46:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:46:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:33 [INFO] -- ------------------------------------------------------------
+200322-21:46:33 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:33 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:33 [INFO] -- GateHandler: gate open request received
+200322-21:46:33 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:38 [INFO] -- ------------------------------------------------------------
+200322-21:46:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:38 [INFO] -- GateHandler: gate open request received
+200322-21:46:38 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:43 [INFO] -- ------------------------------------------------------------
+200322-21:46:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:43 [INFO] -- GateHandler: gate open request received
+200322-21:46:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:48 [INFO] -- ------------------------------------------------------------
+200322-21:46:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:48 [INFO] -- GateHandler: gate open request received
+200322-21:46:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:53 [INFO] -- ------------------------------------------------------------
+200322-21:46:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:53 [INFO] -- GateHandler: gate open request received
+200322-21:46:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:46:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:46:58 [INFO] -- ------------------------------------------------------------
+200322-21:46:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:46:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:46:58 [INFO] -- GateHandler: gate open request received
+200322-21:46:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:03 [INFO] -- ------------------------------------------------------------
+200322-21:47:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:03 [INFO] -- GateHandler: gate open request received
+200322-21:47:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:08 [INFO] -- ------------------------------------------------------------
+200322-21:47:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:08 [INFO] -- GateHandler: gate open request received
+200322-21:47:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:13 [INFO] -- ------------------------------------------------------------
+200322-21:47:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:13 [INFO] -- GateHandler: gate open request received
+200322-21:47:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:18 [INFO] -- ------------------------------------------------------------
+200322-21:47:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:18 [INFO] -- GateHandler: gate open request received
+200322-21:47:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:23 [INFO] -- ------------------------------------------------------------
+200322-21:47:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:23 [INFO] -- GateHandler: gate open request received
+200322-21:47:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:28 [INFO] -- ------------------------------------------------------------
+200322-21:47:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:28 [INFO] -- GateHandler: gate open request received
+200322-21:47:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:47:33 [INFO] -- ------------------------------------------------------------
+200322-21:47:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:47:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:47:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:47:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:47:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:47:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:47:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:47:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:47:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:47:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:33 [INFO] -- ------------------------------------------------------------
+200322-21:47:33 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:33 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:33 [INFO] -- GateHandler: gate open request received
+200322-21:47:33 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:38 [INFO] -- ------------------------------------------------------------
+200322-21:47:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:38 [INFO] -- GateHandler: gate open request received
+200322-21:47:38 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:43 [INFO] -- ------------------------------------------------------------
+200322-21:47:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:43 [INFO] -- GateHandler: gate open request received
+200322-21:47:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:48 [INFO] -- ------------------------------------------------------------
+200322-21:47:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:48 [INFO] -- GateHandler: gate open request received
+200322-21:47:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:53 [INFO] -- ------------------------------------------------------------
+200322-21:47:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:53 [INFO] -- GateHandler: gate open request received
+200322-21:47:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:47:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:47:58 [INFO] -- ------------------------------------------------------------
+200322-21:47:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:47:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:47:58 [INFO] -- GateHandler: gate open request received
+200322-21:47:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:03 [INFO] -- ------------------------------------------------------------
+200322-21:48:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:03 [INFO] -- GateHandler: gate open request received
+200322-21:48:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:08 [INFO] -- ------------------------------------------------------------
+200322-21:48:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:08 [INFO] -- GateHandler: gate open request received
+200322-21:48:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:13 [INFO] -- ------------------------------------------------------------
+200322-21:48:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:13 [INFO] -- GateHandler: gate open request received
+200322-21:48:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:18 [INFO] -- ------------------------------------------------------------
+200322-21:48:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:18 [INFO] -- GateHandler: gate open request received
+200322-21:48:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:23 [INFO] -- ------------------------------------------------------------
+200322-21:48:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:23 [INFO] -- GateHandler: gate open request received
+200322-21:48:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:28 [INFO] -- ------------------------------------------------------------
+200322-21:48:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:28 [INFO] -- GateHandler: gate open request received
+200322-21:48:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:48:33 [INFO] -- ------------------------------------------------------------
+200322-21:48:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:48:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:48:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:48:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:48:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:48:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:48:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:48:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:48:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:48:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:33 [INFO] -- ------------------------------------------------------------
+200322-21:48:33 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:33 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:33 [INFO] -- GateHandler: gate open request received
+200322-21:48:33 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:38 [INFO] -- ------------------------------------------------------------
+200322-21:48:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:38 [INFO] -- GateHandler: gate open request received
+200322-21:48:38 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:43 [INFO] -- ------------------------------------------------------------
+200322-21:48:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:43 [INFO] -- GateHandler: gate open request received
+200322-21:48:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:48 [INFO] -- ------------------------------------------------------------
+200322-21:48:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:48 [INFO] -- GateHandler: gate open request received
+200322-21:48:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:53 [INFO] -- ------------------------------------------------------------
+200322-21:48:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:53 [INFO] -- GateHandler: gate open request received
+200322-21:48:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:48:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:48:58 [INFO] -- ------------------------------------------------------------
+200322-21:48:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:48:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:48:58 [INFO] -- GateHandler: gate open request received
+200322-21:48:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:03 [INFO] -- ------------------------------------------------------------
+200322-21:49:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:03 [INFO] -- GateHandler: gate open request received
+200322-21:49:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:08 [INFO] -- ------------------------------------------------------------
+200322-21:49:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:08 [INFO] -- GateHandler: gate open request received
+200322-21:49:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:13 [INFO] -- ------------------------------------------------------------
+200322-21:49:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:13 [INFO] -- GateHandler: gate open request received
+200322-21:49:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:18 [INFO] -- ------------------------------------------------------------
+200322-21:49:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:18 [INFO] -- GateHandler: gate open request received
+200322-21:49:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:23 [INFO] -- ------------------------------------------------------------
+200322-21:49:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:23 [INFO] -- GateHandler: gate open request received
+200322-21:49:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:28 [INFO] -- ------------------------------------------------------------
+200322-21:49:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:28 [INFO] -- GateHandler: gate open request received
+200322-21:49:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200322-21:49:33 [INFO] -- ------------------------------------------------------------
+200322-21:49:33 [INFO] -- Poll: TimesUp 00001 0
+200322-21:49:33 [FINE] -- GateHandler: message received: [PCSCore (Poll) -- ].
+200322-21:49:33 [INFO] -- GateHandler: poll request received.  Send poll request to hardware.
+200322-21:49:33 [FINE] -- GateHandlerEmulator: Poll request received.  [autoPoll is on]
+200322-21:49:33 [FINE] -- GateHandlerEmulator: Send poll ack.
+200322-21:49:33 [FINE] -- GateHandler: message received: [GateHandlerEmulator (PollAck) -- ].
+200322-21:49:33 [INFO] -- GateHandler: poll ack received.  Send poll ack to PCS Core.
+200322-21:49:33 [FINE] -- PCSCore: message received: [GateHandler (PollAck) -- GateHandler is up!].
+200322-21:49:33 [INFO] -- PollAck: GateHandler is up!
+200322-21:49:33 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:33 [INFO] -- ------------------------------------------------------------
+200322-21:49:33 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:33 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:33 [INFO] -- GateHandler: gate open request received
+200322-21:49:33 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:38 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:38 [INFO] -- ------------------------------------------------------------
+200322-21:49:38 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:38 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:38 [INFO] -- GateHandler: gate open request received
+200322-21:49:38 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:43 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:43 [INFO] -- ------------------------------------------------------------
+200322-21:49:43 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:43 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:43 [INFO] -- GateHandler: gate open request received
+200322-21:49:43 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:48 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:48 [INFO] -- ------------------------------------------------------------
+200322-21:49:48 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:48 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:48 [INFO] -- GateHandler: gate open request received
+200322-21:49:48 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:53 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:53 [INFO] -- ------------------------------------------------------------
+200322-21:49:53 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:53 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:53 [INFO] -- GateHandler: gate open request received
+200322-21:49:53 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:49:58 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:49:58 [INFO] -- ------------------------------------------------------------
+200322-21:49:58 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:49:58 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:49:58 [INFO] -- GateHandler: gate open request received
+200322-21:49:58 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:50:03 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:50:03 [INFO] -- ------------------------------------------------------------
+200322-21:50:03 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:50:03 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:50:03 [INFO] -- GateHandler: gate open request received
+200322-21:50:03 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:50:08 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:50:08 [INFO] -- ------------------------------------------------------------
+200322-21:50:08 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:50:08 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:50:08 [INFO] -- GateHandler: gate open request received
+200322-21:50:08 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:50:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:50:13 [INFO] -- ------------------------------------------------------------
+200322-21:50:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:50:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:50:13 [INFO] -- GateHandler: gate open request received
+200322-21:50:13 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:50:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:50:18 [INFO] -- ------------------------------------------------------------
+200322-21:50:18 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:50:18 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:50:18 [INFO] -- GateHandler: gate open request received
+200322-21:50:18 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:50:23 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:50:23 [INFO] -- ------------------------------------------------------------
+200322-21:50:23 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:50:23 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:50:23 [INFO] -- GateHandler: gate open request received
+200322-21:50:23 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200322-21:50:28 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200322-21:50:28 [INFO] -- ------------------------------------------------------------
+200322-21:50:28 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200322-21:50:28 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200322-21:50:28 [INFO] -- GateHandler: gate open request received
+200322-21:50:28 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
