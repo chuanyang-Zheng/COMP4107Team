@@ -9,6 +9,7 @@ import AppKickstarter.timer.Timer;
 // PCSCore
 public class PCSCore extends AppThread {
     private MBox gateMBox;
+    private MBox collectorMbox;
     private final int pollTime;
     private final int PollTimerID=1;
     private final int openCloseGateTime;		// for demo only!!!
@@ -34,6 +35,7 @@ public class PCSCore extends AppThread {
 	log.info(id + ": starting...");
 
 	gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+	collectorMbox=appKickstarter.getThread("CollectorHandler").getMBox();
 
 	for (boolean quit = false; !quit;) {
 	    Msg msg = mbox.receive();
@@ -63,16 +65,60 @@ public class PCSCore extends AppThread {
 		    quit = true;
 		    break;
 
+		case CollectorValidRequest:
+			handleCollectorValidRequest(msg);
+			break;
+
 		default:
 		    log.warning(id + ": unknown message type: [" + msg + "]");
 	    }
 	}
+
+
 
 	// declaring our departure
 	appKickstarter.unregThread(this);
 	log.info(id + ": terminating...");
     } // run
 
+	public boolean checkStringToInt(String detail) {
+    	try{
+    		Integer.parseInt(detail);
+		}
+    	catch (Exception e){
+    		log.warning(Msg.bracketString(id+" PCSCore")+ "Integer.parseInt fails: "+Msg.quoteString(detail));
+    		return false;
+		}
+    	return true;
+	}
+
+	public void handleCollectorValidRequest(Msg msg){
+		log.info(id+" Collector Valid Request Receive");
+		if(checkStringToInt(msg.getDetails())){
+
+//					boolean valid=ticketValid(Integer.parseInt(msg.getDetails()));
+			boolean valid=false;
+
+			if(valid){
+				collectorMbox.send(new Msg(id,mbox, Msg.Type.CollectorPositive,""));
+
+				// do something. Such as:
+				// delete the ticket.
+				//Ask Gate to Open
+				//After several seconds, ask gate to closed.
+
+				log.fine(Msg.bracketString(id+" PCSCore valid a true ticket. Get message "+Msg.quoteString(msg.getDetails())));
+			}
+			else {
+				collectorMbox.send(new Msg(id,mbox,Msg.Type.CollectorNegative,""));
+				log.warning(Msg.bracketString(id+" PCSCore valid a false ticket. Get message "+Msg.quoteString(msg.getDetails())));
+			}
+		}
+		else {
+			collectorMbox.send(new Msg(id, mbox, Msg.Type.CollectorNegative, ""));
+			log.warning(Msg.bracketString(id+" PCSCore valid a false ticket. Get message "+Msg.quoteString(msg.getDetails())));
+		}
+	}
 
     //------------------------------------------------------------
     // run
