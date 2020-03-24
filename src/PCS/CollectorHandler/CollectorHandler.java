@@ -53,47 +53,100 @@ public class CollectorHandler extends AppThread {
 
     public void handleCollectorValidRequest(Msg msg){
         log.info(id + ": collector valid request received");
+        CollectorStatus oldStatus=collectorStatus;
 
-        int ticketID=-1;
-        try{
-            try {
-                ticketID = Integer.parseInt(msg.getDetails());
-            }
-            catch (Exception e){
-                throw new Exception(id + ": collector receive invalid message: ["+msg.getDetails()+"]");
-            }
-            pcsCore.send(new Msg(id,mbox, Msg.Type.CollectorValidRequest,msg.getDetails()));
+        switch (collectorStatus){
+            case CollectorAvailable:
+                int ticketID = -1;
+                try {
+                    try {
+                        ticketID = Integer.parseInt(msg.getDetails());
+                    } catch (Exception e) {
+                        throw new Exception(id + ": collector receive invalid message: [" + msg.getDetails() + "]");
+                    }
+                    pcsCore.send(new Msg(id, mbox, Msg.Type.CollectorValidRequest, msg.getDetails()));
+                    collectorStatus=CollectorStatus.CollectorWaitValidation;
+                } catch (Exception e) {
+                    log.warning(e.getMessage());
+                    e.printStackTrace();
+                }
+                break;
+
+            case CollectorWaitValidation:
+                log.warning(id+" Collector is waiting validation result. Ignore Validation Request");
+                break;
+            case CollectorWarning:
+                log.warning(id+" Collector is warning. Ignore Validation Request");
         }
-        catch (Exception e){
-            log.warning(e.getMessage());
-            e.printStackTrace();
-        }
+        log.fine(id+": Collector Status from "+oldStatus+"-> "+collectorStatus);
     }
 
     //** Input:Nothing*/
     //** Return:Nothing*/
     //A simple function. The ticket is valid. Therefore, we log received message.
     public void handleCollectorPositive(){
-
+        log.info(id + ": collector receive positive validation");
+        CollectorStatus oldStatus=collectorStatus;
+        switch (collectorStatus){
+            case CollectorAvailable:
+                log.warning(id+": Collector is Available Now. Wrong State!");
+                break;
+            case CollectorWaitValidation:
+                collectorStatus=CollectorStatus.CollectorAvailable;
+                break;
+            case CollectorWarning:
+                log.warning(id+": Collector is Warning Now. Wrong State!");
+                break;
+        }
+        log.fine(id+": Collector Status from "+oldStatus+"-> "+collectorStatus);
     }
 
     //**Input:Nothing*/
     //**Return Nothing*/
     //PCS believe that the ticket is invalid. Therefore, in the method, ring alrams, ask staff to solve problem.
     public void handleCollectorNegative(){
-
+        log.info(id+": collector receive negative validation");
+        CollectorStatus oldStatus=collectorStatus;
+        switch (collectorStatus){
+            case CollectorAvailable:
+                log.warning(id+": Collector is Available Now. Wrong State!");
+                break;
+            case CollectorWaitValidation:
+                log.fine(id+": Ring ALram!");
+                collectorStatus=CollectorStatus.CollectorWarning;
+                break;
+            case CollectorWarning:
+                log.warning(id+": Collector is Warning Now. Wrong State");
+        }
+        log.fine(id+": Collector Status from "+oldStatus+"-> "+collectorStatus);
     }
 
     //**Input:No thing
     //**Return: Nothing
     //**After solve problem, we use the function to tell PCS Core.
     public void handleCollctorSolveProblem(){
+        log.info(id+": collector receive Problem-Solve Message");
+        CollectorStatus oldStatus=collectorStatus;
+        switch (collectorStatus){
+            case CollectorAvailable:
+                log.warning(id+": collector is Now "+collectorStatus+" Wrong State!");
+                break;
+            case CollectorWaitValidation:
+                log.warning(id+": collector is Now "+collectorStatus+" Wrong State!");
+                break;
+            case CollectorWarning:
+                log.fine("Stop Ringing Alram!");
+                pcsCore.send(new Msg(id,mbox, Msg.Type.CollectorSolveProblem,""));
+                collectorStatus=CollectorStatus.CollectorAvailable;
+                break;
+        }
+        log.fine(id+": Collector Status from "+oldStatus+"-> "+collectorStatus);
 
     }
 
     private enum CollectorStatus {
         CollectorAvailable,
-        CollectorReceivePositive,
-        CollectorReceiveNegative,
+        CollectorWaitValidation,
+        CollectorWarning,
     }
 }
