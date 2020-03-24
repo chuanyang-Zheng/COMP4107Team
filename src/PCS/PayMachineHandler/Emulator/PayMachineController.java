@@ -17,7 +17,7 @@ public class PayMachineController {
     private String id;
     private AppKickstarter appKickstarter;
     private Logger log;
-    private PayMachineEmulator gateEmulator;
+    private PayMachineEmulator PayMachineEmulator;
     private MBox gateMBox;
     public TextArea gateTextArea;
 
@@ -26,12 +26,12 @@ public class PayMachineController {
 
     //------------------------------------------------------------
     // initialize
-    public void initialize(String id, AppKickstarter appKickstarter, Logger log, PayMachineEmulator gateEmulator) {
+    public void initialize(String id, AppKickstarter appKickstarter, Logger log, PayMachineEmulator PayMachineEmulator) {
         this.id = id;
         this.appKickstarter = appKickstarter;
         this.log = log;
-        this.gateEmulator = gateEmulator;
-        this.gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+        this.PayMachineEmulator = PayMachineEmulator;
+        this.gateMBox = appKickstarter.getThread("PayMachineHandler").getMBox();
     } // initialize
 
 
@@ -44,30 +44,9 @@ public class PayMachineController {
             case "Gate Open Request":
                 gateMBox.send(new Msg(id, null, Msg.Type.GateOpenRequest, "GateOpenReq"));
                 break;
-
             case "Gate Open Reply":
                 gateMBox.send(new Msg(id, null, Msg.Type.GateOpenReply, "GateOpenReply"));
                 break;
-
-            case "Gate Close Request":
-                gateMBox.send(new Msg(id, null, Msg.Type.GateCloseRequest, "GateCloseReq"));
-                break;
-
-            case "Gate Close Reply":
-                gateMBox.send(new Msg(id, null, Msg.Type.GateCloseReply, "GateCloseReply"));
-                break;
-
-            case "Poll Request":
-                appendTextArea("Send poll request.");
-                gateMBox.send(new Msg(id, null, Msg.Type.Poll, ""));
-                break;
-
-            case "Poll ACK":
-                appendTextArea("Send poll ack.");
-                gateMBox.send(new Msg(id, null, Msg.Type.PollAck, ""));
-                break;
-
-
             default:
                 log.warning(id + ": unknown button: [" + btn.getText() + "]");
                 break;
