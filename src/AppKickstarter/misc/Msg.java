@@ -97,7 +97,6 @@ public class Msg {
 	/** Toggling Gate Emulator AutoPoll */	GateEmulatorAutoPollToggle,
 
     /** Toggling Collector Emulator AutoClose */	CollectorValidRequest,
-    /** Toggling Collector Emulator AutoPoll */	CollectorValidReply,
     /** Toggling Collector Emulator AutoClose */	CollectorPositive,
     /** Toggling Collector Emulator AutoPoll */	CollectorNegative,
     /** Toggling Collector Emulator AutoClose */	CollectorSolveProblem,
