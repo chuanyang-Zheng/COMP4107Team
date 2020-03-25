@@ -2,6 +2,9 @@ package PCS.PayMachineHandler;
 
 import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.*;
+import PCS.PCSStarter;
+import PCS.PayMachineHandler.Emulator.PayMachineController;
+import PCS.PayMachineHandler.Emulator.PayMachineEmulator;
 
 
 //======================================================================
@@ -9,11 +12,13 @@ import AppKickstarter.misc.*;
 public class PayMachineHandler extends AppThread {
     protected final MBox pcsCore;
     private GateStatus gateStatus;
+    private PayMachineEmulator PayEmu;
 
     //------------------------------------------------------------
     // GateHandler
-    public PayMachineHandler(String id, AppKickstarter appKickstarter) {
-        super(id, appKickstarter);
+    public PayMachineHandler(String id,AppKickstarter pcss) {
+        super(id, pcss);
+
         pcsCore = appKickstarter.getThread("PCSCore").getMBox();
         gateStatus = GateStatus.GateClosed;
     } // GateHandler

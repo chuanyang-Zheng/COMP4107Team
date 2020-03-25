@@ -36,7 +36,7 @@ public class PCSCore extends AppThread {
 	log.info(id + ": starting...");
 
 	gateMBox = appKickstarter.getThread("GateHandler").getMBox();
-	collectorMbox=appKickstarter.getThread("CollectorHandler").getMBox();
+//	collectorMbox = appKickstarter.getThread("CollectorHandler").getMBox();
 	payMBox = appKickstarter.getThread("PayMachineHandler").getMBox();
 	for (boolean quit = false; !quit;) {
 	    Msg msg = mbox.receive();

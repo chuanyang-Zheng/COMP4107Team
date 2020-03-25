@@ -7,6 +7,8 @@ import AppKickstarter.timer.Timer;
 import PCS.PCSCore.PCSCore;
 import PCS.GateHandler.GateHandler;
 
+import PCS.PayMachineHandler.Emulator.PayMachineEmulator;
+import PCS.PayMachineHandler.PayMachineHandler;
 import javafx.application.Platform;
 
 
@@ -16,7 +18,7 @@ public class PCSStarter extends AppKickstarter {
     protected Timer timer;
     protected PCSCore pcsCore;
     protected GateHandler gateHandler;
-
+    protected PayMachineHandler payHandler;
 
     //------------------------------------------------------------
     // main
@@ -53,6 +55,9 @@ public class PCSStarter extends AppKickstarter {
 	    timer = new Timer("timer", this);
 	    pcsCore = new PCSCore("PCSCore", this);
 	    gateHandler = new GateHandler("GateHandler", this);
+	    payHandler = new PayMachineHandler("PayMachineHandler",this);
+
+
 	} catch (Exception e) {
 	    System.out.println("AppKickstarter: startApp failed");
 	    e.printStackTrace();
@@ -63,6 +68,7 @@ public class PCSStarter extends AppKickstarter {
 	new Thread(timer).start();
 	new Thread(pcsCore).start();
 	new Thread(gateHandler).start();
+	new Thread(payHandler).start();
     } // startHandlers
 
 

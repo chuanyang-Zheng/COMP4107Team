@@ -22,8 +22,8 @@ public class PayMachineEmulator extends PayMachineHandler {
     private PayMachineController PayMachineController;
     private final PCSStarter pcsStarter;
     private final String id;
-    private final int gateOpenTime;
-    private final int gateCloseTime;
+//    private final int gateOpenTime;
+//    private final int gateCloseTime;
     private final int GateOpenTimerID = 1;
     private final int GateCloseTimerID = 2;
     private boolean autoOpen;
@@ -37,11 +37,11 @@ public class PayMachineEmulator extends PayMachineHandler {
         super(id, pcsStarter);
         this.pcsStarter = pcsStarter;
         this.id = id + "Emulator";
-        this.gateOpenTime = Integer.parseInt(this.pcsStarter.getProperty("Gate.GateOpenTime"));
-        this.gateCloseTime = Integer.parseInt(this.pcsStarter.getProperty("Gate.GateCloseTime"));
-        this.autoOpen = true;
-        this.autoClose = true;
-        this.autoPoll = true;
+//        this.gateOpenTime = Integer.parseInt(this.pcsStarter.getProperty("Gate.GateOpenTime"));
+////        this.gateCloseTime = Integer.parseInt(this.pcsStarter.getProperty("Gate.GateCloseTime"));
+//        this.autoOpen = true;
+//        this.autoClose = true;
+//        this.autoPoll = true;
     } // GateEmulator
 
 
@@ -51,14 +51,14 @@ public class PayMachineEmulator extends PayMachineHandler {
         Parent root;
         myStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        String fxmlName = "GateEmulator.fxml";
+        String fxmlName = "PayMachineEmulator.fxml";
         loader.setLocation(PayMachineEmulator.class.getResource(fxmlName));
         root = loader.load();
         PayMachineController = (PayMachineController) loader.getController();
         PayMachineController.initialize(id, pcsStarter, log, this);
         myStage.initStyle(StageStyle.DECORATED);
         myStage.setScene(new Scene(root, 420, 470));
-        myStage.setTitle("Gate Emulator");
+        myStage.setTitle("PayMachine Emulator");
         myStage.setResizable(false);
         myStage.setOnCloseRequest((WindowEvent event) -> {
             pcsStarter.stopApp();
