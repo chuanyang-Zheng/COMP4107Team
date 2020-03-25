@@ -20,9 +20,7 @@ public class GateEmulatorController {
     private GateEmulator gateEmulator;
     private MBox gateMBox;
     public TextArea gateTextArea;
-    public Button autoOpenButton;
-    public Button autoCloseButton;
-    public Button autoPollButton;
+
     private int lineNo = 0;
 
 
@@ -69,35 +67,6 @@ public class GateEmulatorController {
 		gateMBox.send(new Msg(id, null, Msg.Type.PollAck, ""));
 		break;
 
-	    case "Auto Open: On":
-		Platform.runLater(() -> autoOpenButton.setText("Auto Open: Off"));
-		gateMBox.send(new Msg(id, null, Msg.Type.GateEmulatorAutoOpenToggle, "ToggleAutoOpen"));
-		break;
-
-	    case "Auto Open: Off":
-		Platform.runLater(() -> autoOpenButton.setText("Auto Open: On"));
-		gateMBox.send(new Msg(id, null, Msg.Type.GateEmulatorAutoOpenToggle, "ToggleAutoOpen"));
-		break;
-
-	    case "Auto Close: On":
-		Platform.runLater(() -> autoCloseButton.setText("Auto Close: Off"));
-		gateMBox.send(new Msg(id, null, Msg.Type.GateEmulatorAutoCloseToggle, "ToggleAutoClose"));
-		break;
-
-	    case "Auto Close: Off":
-		Platform.runLater(() -> autoCloseButton.setText("Auto Close: On"));
-		gateMBox.send(new Msg(id, null, Msg.Type.GateEmulatorAutoCloseToggle, "ToggleAutoClose"));
-		break;
-
-	    case "Auto Poll: On":
-		Platform.runLater(() -> autoPollButton.setText("Auto Poll: Off"));
-		gateMBox.send(new Msg(id, null, Msg.Type.GateEmulatorAutoPollToggle, "ToggleAutoPoll"));
-		break;
-
-	    case "Auto Poll: Off":
-		Platform.runLater(() -> autoPollButton.setText("Auto Poll: On"));
-		gateMBox.send(new Msg(id, null, Msg.Type.GateEmulatorAutoPollToggle, "ToggleAutoPoll"));
-		break;
 
 	    default:
 	        log.warning(id + ": unknown button: [" + btn.getText() + "]");

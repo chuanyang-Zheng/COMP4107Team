@@ -10,6 +10,7 @@ import AppKickstarter.timer.Timer;
 public class PCSCore extends AppThread {
     private MBox gateMBox;
     private MBox collectorMbox;
+    private MBox payMBox;
     private final int pollTime;
     private final int PollTimerID=1;
     private final int openCloseGateTime;		// for demo only!!!
@@ -35,8 +36,8 @@ public class PCSCore extends AppThread {
 	log.info(id + ": starting...");
 
 	gateMBox = appKickstarter.getThread("GateHandler").getMBox();
-	collectorMbox=appKickstarter.getThread("CollectorHandler").getMBox();
-
+//	collectorMbox = appKickstarter.getThread("CollectorHandler").getMBox();
+	payMBox = appKickstarter.getThread("PayMachineHandler").getMBox();
 	for (boolean quit = false; !quit;) {
 	    Msg msg = mbox.receive();
 
