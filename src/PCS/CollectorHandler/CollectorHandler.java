@@ -111,7 +111,7 @@ public class CollectorHandler extends AppThread {
                 log.warning(id+": Collector is Available Now. Wrong State!");
                 break;
             case CollectorWaitValidation:
-                log.fine(id+": Ring ALram!");
+                sendStartAlarmSignal();
                 collectorStatus=CollectorStatus.CollectorWarning;
                 break;
             case CollectorWarning:
@@ -134,13 +134,22 @@ public class CollectorHandler extends AppThread {
                 log.warning(id+": collector is Now "+collectorStatus+" Wrong State!");
                 break;
             case CollectorWarning:
-                log.fine("Stop Ringing Alram!");
+                sendStopAlarmSignal();
                 pcsCore.send(new Msg(id,mbox, Msg.Type.CollectorSolveProblem,""));
+                log.info(id+" Inform PCSCore than already solve problem ");
                 collectorStatus=CollectorStatus.CollectorAvailable;
                 break;
         }
         log.fine(id+": Collector Status from "+oldStatus+"-> "+collectorStatus);
 
+    }
+
+    protected void sendStartAlarmSignal(){
+        log.fine(id+" Ring Alarm!");
+    }
+
+    protected void sendStopAlarmSignal(){
+        log.fine(id+": Stop Alarm!");
     }
 
     protected final void handlePollReq() {
@@ -160,6 +169,7 @@ public class CollectorHandler extends AppThread {
         log.info(id + ": poll ack received.  Send poll ack to PCS Core.");
         pcsCore.send(new Msg(id, mbox, Msg.Type.PollAck, id + " is up!"));
     } // handlePollAck
+
 
     private enum CollectorStatus {
         CollectorAvailable,

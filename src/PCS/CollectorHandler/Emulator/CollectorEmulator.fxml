@@ -29,7 +29,7 @@
 <!--            </children>-->
 <!--        </AnchorPane>-->
 
-        <TextArea fx:id="gateTextArea" editable="false" layoutX="20.0" layoutY="169.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="150" />
+        <TextArea fx:id="collectorTextArea" editable="false" layoutX="20.0" layoutY="169.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="150" />
     </children>
 </AnchorPane>
 

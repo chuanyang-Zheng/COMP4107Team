@@ -56,4 +56,45 @@ public class CollectorEmulator extends CollectorHandler {
         });
         myStage.show();
     } // CollectorEmulator
+
+    @Override
+    protected void sendStartAlarmSignal() {
+        logWarning("The Ticket Is Wrong. Ring Alarm!");
+    }
+
+    @Override
+    protected void sendStopAlarmSignal() {
+        logFine("Already Solve Problem. Stop Alarm!");
+    }
+
+    //------------------------------------------------------------
+    // logFine
+    private final void logFine(String logMsg) {
+        collectorEmulatorController.appendTextArea("[FINE]: " + logMsg);
+        log.fine(id + ": " + logMsg);
+    } // logFine
+
+
+    //------------------------------------------------------------
+    // logInfo
+    private final void logInfo(String logMsg) {
+        collectorEmulatorController.appendTextArea("[INFO]: " + logMsg);
+        log.info(id + ": " + logMsg);
+    } // logInfo
+
+
+    //------------------------------------------------------------
+    // logWarning
+    private final void logWarning(String logMsg) {
+        collectorEmulatorController.appendTextArea("[WARNING]: " + logMsg);
+        log.warning(id + ": " + logMsg);
+    } // logWarning
+
+
+    //------------------------------------------------------------
+    // logSevere
+    private final void logSevere(String logMsg) {
+        collectorEmulatorController.appendTextArea("[SEVERE]: " + logMsg);
+        log.severe(id + ": " + logMsg);
+    } // logSevere
 }

@@ -58,6 +58,32 @@ public class Ticket {
     public long getExitTime() {
         return exitTime;
     }
+
+    public boolean valid(Logger log){
+        if(ticketID<0)
+        {
+            log.warning(ticketID+" is not valid");
+            return false;
+        }
+        if( System.currentTimeMillis()>exitTime)
+        {
+            log.warning("Current time"+System.currentTimeMillis()+" is larger than Exit time: "+exitTime);
+            return false;
+        }
+        if(payMachineID<0)
+        {
+            log.warning(payMachineID+" is smaller than 0");
+            return false;
+        }
+
+        if( parkingFee<0){
+            log.warning(parkingFee+" is smaller than 0");
+            return false;
+        }
+
+
+        return true;
+    }
 //
 //    public void setInformation(long exitTime, int payMachineID, float calculateFeeCoeficient){
 //

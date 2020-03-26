@@ -4,6 +4,8 @@ import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.*;
 import AppKickstarter.timer.Timer;
 
+import java.util.ArrayList;
+
 
 //======================================================================
 // PCSCore
@@ -16,6 +18,7 @@ public class PCSCore extends AppThread {
     private final int openCloseGateTime;		// for demo only!!!
     private final int OpenCloseGateTimerID=2;		// for demo only!!!
     private boolean gateIsClosed = true;		// for demo only!!!
+	private ArrayList<Ticket> ticketList=new ArrayList<>();
 
 
     //------------------------------------------------------------
@@ -24,57 +27,63 @@ public class PCSCore extends AppThread {
 	super(id, appKickstarter);
 	this.pollTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.PollTime"));
 	this.openCloseGateTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.OpenCloseGateTime"));		// for demo only!!!
+	ticketList.add(new Ticket());
     } // PCSCore
 
 
     //------------------------------------------------------------
     // run
     public void run() {
-        Thread.currentThread().setName(id);
+	Thread.currentThread().setName(id);
 	Timer.setTimer(id, mbox, pollTime, PollTimerID);
 	Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);	// for demo only!!!
 	log.info(id + ": starting...");
 
 	gateMBox = appKickstarter.getThread("GateHandler").getMBox();
-//	collectorMbox = appKickstarter.getThread("CollectorHandler").getMBox();
+	collectorMbox = appKickstarter.getThread("CollectorHandler").getMBox();
 	payMBox = appKickstarter.getThread("PayMachineHandler").getMBox();
 	for (boolean quit = false; !quit;) {
 	    Msg msg = mbox.receive();
 
 	    log.fine(id + ": message received: [" + msg + "].");
 
-	    switch (msg.getType()) {
-		case TimesUp:
-		    handleTimesUp(msg);
-		    break;
+	    try {
+			switch (msg.getType()) {
+				case TimesUp:
+					handleTimesUp(msg);
+					break;
 
-		case GateOpenReply:
-		    log.info(id + ": Gate is opened.");
-		    gateIsClosed = false;
-		    break;
+				case GateOpenReply:
+					log.info(id + ": Gate is opened.");
+					gateIsClosed = false;
+					break;
 
-		case GateCloseReply:
-		    log.info(id + ": Gate is closed.");
-		    gateIsClosed = true;
-		    break;
+				case GateCloseReply:
+					log.info(id + ": Gate is closed.");
+					gateIsClosed = true;
+					break;
 
-		case PollAck:
-		    log.info("PollAck: " + msg.getDetails());
-		    break;
+				case PollAck:
+					log.info("PollAck: " + msg.getDetails());
+					break;
 
-		case Terminate:
-		    quit = true;
-		    break;
+				case Terminate:
+					quit = true;
+					break;
 
-		case CollectorValidRequest:
-			handleCollectorValidRequest(msg);
-			break;
-		case CollectorSolveProblem:
-			log.fine(id+": Collector Solve Problem Now. Collector Is Available Now!");
-
-		default:
-		    log.warning(id + ": unknown message type: [" + msg + "]");
-	    }
+				case CollectorValidRequest:
+					handleCollectorValidRequest(msg);
+					break;
+				case CollectorSolveProblem:
+					log.fine(id + ": Collector Solve Problem Now. Collector Is Available Now!");
+					break;
+				default:
+					log.warning(id + ": unknown message type: [" + msg + "]");
+			}
+		}
+	    catch (Exception e){
+	    	e.printStackTrace();
+		}
 	}
 
 
@@ -99,11 +108,13 @@ public class PCSCore extends AppThread {
 		log.info(id+" Collector Valid Request Receive");
 		if(checkStringToInt(msg.getDetails())){
 
-//					boolean valid=ticketValid(Integer.parseInt(msg.getDetails()));
-			boolean valid=false;
+			boolean valid=validTicket(Integer.parseInt(msg.getDetails()));
 
 			if(valid){
+
+				ticketList.remove(Integer.parseInt(msg.getDetails()));
 				collectorMbox.send(new Msg(id,mbox, Msg.Type.CollectorPositive,""));
+				gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
 
 				// do something. Such as:
 				// delete the ticket.
@@ -150,4 +161,14 @@ public class PCSCore extends AppThread {
 	        break;
 	}
     } // handleTimesUp
+
+	public boolean validTicket(int ticketID){
+    	log.info(id+ " valid ticket "+ticketID);
+    	for(int i=0;i<ticketList.size();i++){
+    		if(ticketList.get(i).getTicketID()==ticketID){
+    			return ticketList.get(i).valid(log);
+			}
+		}
+    	return false;
+	}
 } // PCSCore

@@ -18,7 +18,7 @@ public class CollectorEmulatorController {
     private Logger log;
     private CollectorEmulator collectorEmulator;
     private MBox collectorMBox;
-    public TextArea collectorTextArea=new TextArea();
+    public TextArea collectorTextArea;
 
     private int lineNo = 0;
 
@@ -35,7 +35,7 @@ public class CollectorEmulatorController {
 
         switch (btn.getText()) {
             case "Collector Valid Request":
-                collectorMBox.send(new Msg(id, null, Msg.Type.CollectorValidRequest, "Collector Valid Request"));
+                collectorMBox.send(new Msg(id, null, Msg.Type.CollectorValidRequest,"0"));
                 break;
 
             case "Collector Positive":

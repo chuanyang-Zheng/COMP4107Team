@@ -1,36 +1,44 @@
-200326-15:24:35 [INFO] -- 
-200326-15:24:35 [INFO] -- 
-200326-15:24:35 [INFO] -- ============================================================
-200326-15:24:35 [INFO] -- PCSStarter: Application Starting...
-200326-15:24:35 [FINE] -- PCSStarter: registering timer
-200326-15:24:35 [FINE] -- timer: created!
-200326-15:24:35 [FINE] -- PCSStarter: registering PCSCore
-200326-15:24:35 [FINE] -- PCSCore: created!
-200326-15:24:35 [FINE] -- PCSStarter: registering CollectorHandler
-200326-15:24:35 [FINE] -- CollectorHandler: created!
-200326-15:24:35 [FINE] -- PCSStarter: registering GateHandler
-200326-15:24:35 [FINE] -- GateHandler: created!
-200326-15:24:35 [FINE] -- PCSStarter: registering PayMachineHandler
-200326-15:24:35 [FINE] -- PayMachineHandler: created!
-200326-15:24:36 [INFO] -- PCSCore: starting...
-200326-15:24:36 [INFO] -- GateHandler: starting...
-200326-15:24:36 [INFO] -- timer: starting...
-200326-15:24:36 [INFO] -- CollectorHandler: starting...
-200326-15:24:36 [INFO] -- PayMachineHandler: starting...
-200326-15:24:40 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (PollAck) -- {}].
-200326-15:24:40 [INFO] -- CollectorHandler: poll ack received.  Send poll ack to PCS Core.
-200326-15:24:40 [FINE] -- PCSCore: message received: [CollectorHandler (PollAck) -- {CollectorHandler is up!}].
-200326-15:24:40 [INFO] -- PollAck: CollectorHandler is up!
-200326-15:24:52 [INFO] -- 
-200326-15:24:52 [INFO] -- 
-200326-15:24:52 [INFO] -- ============================================================
-200326-15:24:52 [INFO] -- PCSStarter: Application Stopping...
-200326-15:24:52 [INFO] -- timer: received terminate!
-200326-15:24:52 [FINE] -- PCSStarter: unregistering timer
-200326-15:24:52 [FINE] -- PCSCore: message received: [PCSStarter (Terminate) -- {Terminate now!}].
-200326-15:24:52 [FINE] -- GateHandler: message received: [PCSStarter (Terminate) -- {Terminate now!}].
-200326-15:24:52 [INFO] -- timer: terminating...
-200326-15:24:52 [FINE] -- PCSStarter: unregistering PCSCore
-200326-15:24:52 [INFO] -- PCSCore: terminating...
-200326-15:24:52 [FINE] -- PCSStarter: unregistering GateHandler
-200326-15:24:52 [INFO] -- GateHandler: terminating...
+200326-16:57:49 [INFO] -- 
+200326-16:57:49 [INFO] -- 
+200326-16:57:49 [INFO] -- ============================================================
+200326-16:57:49 [INFO] -- PCSStarter: Application Starting...
+200326-16:57:49 [FINE] -- PCSStarter: registering timer
+200326-16:57:49 [FINE] -- timer: created!
+200326-16:57:49 [FINE] -- PCSStarter: registering PCSCore
+200326-16:57:49 [FINE] -- PCSCore: created!
+200326-16:57:49 [FINE] -- PCSStarter: registering CollectorHandler
+200326-16:57:49 [FINE] -- CollectorHandler: created!
+200326-16:57:49 [FINE] -- PCSStarter: registering GateHandler
+200326-16:57:49 [FINE] -- GateHandler: created!
+200326-16:57:49 [FINE] -- PCSStarter: registering PayMachineHandler
+200326-16:57:49 [FINE] -- PayMachineHandler: created!
+200326-16:57:50 [INFO] -- timer: starting...
+200326-16:57:50 [INFO] -- CollectorHandler: starting...
+200326-16:57:50 [INFO] -- PayMachineHandler: starting...
+200326-16:57:50 [INFO] -- GateHandler: starting...
+200326-16:57:50 [INFO] -- PCSCore: starting...
+200326-16:57:53 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorValidRequest) -- {0}].
+200326-16:57:53 [INFO] -- CollectorHandler: collector valid request received
+200326-16:57:53 [FINE] -- CollectorHandler: Collector Status from CollectorAvailable-> CollectorWaitValidation
+200326-16:57:53 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorValidRequest) -- {0}].
+200326-16:57:53 [INFO] -- PCSCore Collector Valid Request Receive
+200326-16:57:53 [INFO] -- PCSCore valid ticket 0
+200326-16:57:53 [WARNING] -- Current time1585213073102 is larger than Exit time: -1
+200326-16:57:53 [FINE] -- CollectorHandler: message received: [PCSCore (CollectorNegative) -- {}].
+200326-16:57:53 [WARNING] -- [PCSCore PCSCore valid a false ticket. Get message {0}]
+200326-16:57:53 [INFO] -- CollectorHandler: collector receive negative validation
+200326-16:57:53 [WARNING] -- CollectorHandlerEmulator: The Ticket Is Wrong. Ring Alarm!
+200326-16:57:53 [FINE] -- CollectorHandler: Collector Status from CollectorWaitValidation-> CollectorWarning
+200326-16:58:10 [INFO] -- 
+200326-16:58:10 [INFO] -- 
+200326-16:58:10 [INFO] -- ============================================================
+200326-16:58:10 [INFO] -- PCSStarter: Application Stopping...
+200326-16:58:10 [FINE] -- PCSCore: message received: [PCSStarter (Terminate) -- {Terminate now!}].
+200326-16:58:10 [FINE] -- GateHandler: message received: [PCSStarter (Terminate) -- {Terminate now!}].
+200326-16:58:10 [INFO] -- timer: received terminate!
+200326-16:58:10 [FINE] -- PCSStarter: unregistering PCSCore
+200326-16:58:10 [FINE] -- PCSStarter: unregistering timer
+200326-16:58:10 [INFO] -- PCSCore: terminating...
+200326-16:58:10 [INFO] -- timer: terminating...
+200326-16:58:10 [FINE] -- PCSStarter: unregistering GateHandler
+200326-16:58:10 [INFO] -- GateHandler: terminating...
