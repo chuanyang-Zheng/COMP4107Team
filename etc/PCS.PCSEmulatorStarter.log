@@ -1,38 +1,46 @@
-200326-17:00:41 [INFO] -- 
-200326-17:00:41 [INFO] -- 
-200326-17:00:41 [INFO] -- ============================================================
-200326-17:00:41 [INFO] -- PCSStarter: Application Starting...
-200326-17:00:41 [FINE] -- PCSStarter: registering timer
-200326-17:00:41 [FINE] -- timer: created!
-200326-17:00:41 [FINE] -- PCSStarter: registering PCSCore
-200326-17:00:41 [FINE] -- PCSCore: created!
-200326-17:00:41 [FINE] -- PCSStarter: registering CollectorHandler
-200326-17:00:41 [FINE] -- CollectorHandler: created!
-200326-17:00:41 [FINE] -- PCSStarter: registering GateHandler
-200326-17:00:41 [FINE] -- GateHandler: created!
-200326-17:00:41 [FINE] -- PCSStarter: registering PayMachineHandler
-200326-17:00:41 [FINE] -- PayMachineHandler: created!
-200326-17:00:43 [INFO] -- PCSCore: starting...
-200326-17:00:43 [INFO] -- GateHandler: starting...
-200326-17:00:43 [INFO] -- timer: starting...
-200326-17:00:43 [INFO] -- CollectorHandler: starting...
-200326-17:00:43 [INFO] -- PayMachineHandler: starting...
-200326-17:00:46 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorValidRequest) -- {0}].
-200326-17:00:46 [INFO] -- CollectorHandler: collector valid request received
-200326-17:00:46 [FINE] -- CollectorHandler: Collector Status from CollectorAvailable-> CollectorWaitValidation
-200326-17:00:46 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorValidRequest) -- {0}].
-200326-17:00:46 [INFO] -- PCSCore Collector Valid Request Receive
-200326-17:00:46 [INFO] -- PCSCore valid ticket 0
-200326-17:00:46 [WARNING] -- Current time1585213246126 is larger than Exit time: -1
-200326-17:00:46 [FINE] -- CollectorHandler: message received: [PCSCore (CollectorNegative) -- {}].
-200326-17:00:46 [WARNING] -- [PCSCore PCSCore valid a false ticket. Get message {0}]
-200326-17:00:46 [INFO] -- CollectorHandler: collector receive negative validation
-200326-17:00:46 [WARNING] -- CollectorHandlerEmulator: The Ticket Is Wrong. Ring Alarm!
-200326-17:00:46 [FINE] -- CollectorHandler: Collector Status from CollectorWaitValidation-> CollectorWarning
-200326-17:00:48 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorSolveProblem) -- {Collector Solve Problem}].
-200326-17:00:48 [INFO] -- CollectorHandler: collector receive Problem-Solve Message
-200326-17:00:48 [FINE] -- CollectorHandlerEmulator: Already Solve Problem. Stop Alarm!
-200326-17:00:48 [INFO] -- CollectorHandler Inform PCSCore than already solve problem 
-200326-17:00:48 [FINE] -- CollectorHandler: Collector Status from CollectorWarning-> CollectorAvailable
-200326-17:00:48 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorSolveProblem) -- {}].
-200326-17:00:48 [FINE] -- PCSCore: Collector Solve Problem Now. Collector Is Available Now!
+200326-22:09:11 [INFO] -- 
+200326-22:09:11 [INFO] -- 
+200326-22:09:11 [INFO] -- ============================================================
+200326-22:09:11 [INFO] -- PCSStarter: Application Starting...
+200326-22:09:11 [FINE] -- PCSStarter: registering timer
+200326-22:09:11 [FINE] -- timer: created!
+200326-22:09:11 [FINE] -- PCSStarter: registering PCSCore
+200326-22:09:11 [FINE] -- PCSCore: created!
+200326-22:09:11 [FINE] -- PCSStarter: registering CollectorHandler
+200326-22:09:11 [FINE] -- CollectorHandler: created!
+200326-22:09:11 [FINE] -- PCSStarter: registering GateHandler
+200326-22:09:11 [FINE] -- GateHandler: created!
+200326-22:09:11 [FINE] -- PCSStarter: registering PayMachineHandler
+200326-22:09:11 [FINE] -- PayMachineHandler: created!
+200326-22:09:12 [INFO] -- GateHandler: starting...
+200326-22:09:12 [INFO] -- timer: starting...
+200326-22:09:12 [INFO] -- CollectorHandler: starting...
+200326-22:09:12 [INFO] -- PayMachineHandler: starting...
+200326-22:09:12 [INFO] -- PCSCore: starting...
+200326-22:09:22 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorValidRequest) -- {0}].
+200326-22:09:22 [INFO] -- CollectorHandler: collector valid request received
+200326-22:09:22 [FINE] -- CollectorHandler: Collector Status from CollectorAvailable-> CollectorWaitValidation
+200326-22:09:22 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorValidRequest) -- {0}].
+200326-22:09:22 [INFO] -- PCSCore Collector Valid Request Receive
+200326-22:09:22 [INFO] -- PCSCore valid ticket 0
+200326-22:09:22 [FINE] -- [PCSCore PCSCore valid a true ticket. Get message {0}]
+200326-22:09:22 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- {GateOpenReq}].
+200326-22:09:22 [FINE] -- CollectorHandler: message received: [PCSCore (CollectorPositive) -- {}].
+200326-22:09:22 [INFO] -- CollectorHandler: collector receive positive validation
+200326-22:09:22 [FINE] -- CollectorHandler: Collector Status from CollectorWaitValidation-> CollectorAvailable
+200326-22:09:22 [INFO] -- GateHandler: gate open request received
+200326-22:09:22 [INFO] -- GateHandler: send signal to open the gate now.
+200326-22:09:22 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is on]
+200326-22:09:22 [FINE] -- GateHandlerEmulator: Gate open timer started.
+200326-22:09:22 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
+200326-22:09:27 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorValidRequest) -- {0}].
+200326-22:09:27 [INFO] -- CollectorHandler: collector valid request received
+200326-22:09:27 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorValidRequest) -- {0}].
+200326-22:09:27 [FINE] -- CollectorHandler: Collector Status from CollectorAvailable-> CollectorWaitValidation
+200326-22:09:27 [INFO] -- PCSCore Collector Valid Request Receive
+200326-22:09:27 [INFO] -- PCSCore valid ticket 0
+200326-22:09:27 [WARNING] -- [PCSCore PCSCore valid a false ticket. Get message {0}]
+200326-22:09:27 [FINE] -- CollectorHandler: message received: [PCSCore (CollectorNegative) -- {}].
+200326-22:09:27 [INFO] -- CollectorHandler: collector receive negative validation
+200326-22:09:27 [WARNING] -- CollectorHandlerEmulator: The Ticket Is Wrong. Ring Alarm!
+200326-22:09:27 [FINE] -- CollectorHandler: Collector Status from CollectorWaitValidation-> CollectorWarning

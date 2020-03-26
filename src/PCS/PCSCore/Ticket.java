@@ -59,33 +59,36 @@ public class Ticket {
         return exitTime;
     }
 
-    public boolean valid(Logger log){
+    public boolean valid(Logger log,String id){
         if(ticketID<0)
         {
-            log.warning(ticketID+" is not valid");
+            log.warning(id+": "+ticketID+" is not valid");
             return false;
         }
         if( System.currentTimeMillis()>exitTime)
         {
-            log.warning("Current time"+System.currentTimeMillis()+" is larger than Exit time: "+exitTime);
+            log.warning(id+": "+"Current time"+System.currentTimeMillis()+" is larger than Exit time: "+exitTime);
             return false;
         }
         if(payMachineID<0)
         {
-            log.warning(payMachineID+" is smaller than 0");
+            log.warning(id+": "+payMachineID+" is smaller than 0");
             return false;
         }
 
         if( parkingFee<0){
-            log.warning(parkingFee+" is smaller than 0");
+            log.warning(id+": "+parkingFee+" is smaller than 0");
             return false;
         }
 
 
         return true;
     }
-//
-//    public void setInformation(long exitTime, int payMachineID, float calculateFeeCoeficient){
-//
-//    }
+
+    public void setExitInformation(long exitTimeCoefficient,int payMachineID, float calculateFeeCoefficient){
+        long currentTime=System.currentTimeMillis();
+        this.exitTime=currentTime+exitTimeCoefficient;
+        this.payMachineID=payMachineID;
+        this.parkingFee=(System.currentTimeMillis()-enterTime)*calculateFeeCoefficient;
+    }
 }

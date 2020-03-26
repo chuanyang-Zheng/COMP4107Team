@@ -19,6 +19,8 @@ public class PCSCore extends AppThread {
     private final int OpenCloseGateTimerID=2;		// for demo only!!!
     private boolean gateIsClosed = true;		// for demo only!!!
 	private ArrayList<Ticket> ticketList=new ArrayList<>();
+	private long exitTimeCoefficient=Long.parseLong(appKickstarter.getProperty("Ticket.exitTimeCoefficient"));
+	private float calculateFeeCoefficient=Float.parseFloat(appKickstarter.getProperty("Ticket.calculateFeeCoefficient"));
 
 
     //------------------------------------------------------------
@@ -27,7 +29,11 @@ public class PCSCore extends AppThread {
 	super(id, appKickstarter);
 	this.pollTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.PollTime"));
 	this.openCloseGateTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.OpenCloseGateTime"));		// for demo only!!!
-	ticketList.add(new Ticket());
+	Ticket trueTicket=new Ticket();
+	trueTicket.setExitInformation(exitTimeCoefficient,0,calculateFeeCoefficient);
+	Ticket falseTicket=new Ticket();
+	ticketList.add(trueTicket);
+	ticketList.add(falseTicket);
     } // PCSCore
 
 
@@ -168,9 +174,10 @@ public class PCSCore extends AppThread {
     	log.info(id+ " valid ticket "+ticketID);
     	for(int i=0;i<ticketList.size();i++){
     		if(ticketList.get(i).getTicketID()==ticketID){
-    			return ticketList.get(i).valid(log);
+    			return ticketList.get(i).valid(log,id);
 			}
 		}
+    	log.warning(id+": No Ticket With ID "+ticketID);
     	return false;
 	}
 } // PCSCore
