@@ -4,7 +4,6 @@ import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.AppThread;
 import AppKickstarter.misc.MBox;
 import AppKickstarter.misc.Msg;
-import PCS.GateHandler.GateHandler;
 
 public class CollectorHandler extends AppThread {
     protected final MBox pcsCore;
@@ -42,8 +41,8 @@ public class CollectorHandler extends AppThread {
             case CollectorPositive:   handleCollectorPositive();   break;
             case CollectorNegative: handleCollectorNegative(); break;
             case CollectorSolveProblem:	   handleCollctorSolveProblem();    break;
-//            case Poll:		   handlePollReq();	     break;
-//            case PollAck:	   handlePollAck();	     break;
+            case Poll:		   handlePollReq();	     break;
+            case PollAck:	   handlePollAck();	     break;
             case Terminate:	   quit = true;		     break;
             default:
                 log.warning(id + ": unknown message type: [" + msg + "]");
@@ -143,6 +142,24 @@ public class CollectorHandler extends AppThread {
         log.fine(id+": Collector Status from "+oldStatus+"-> "+collectorStatus);
 
     }
+
+    protected final void handlePollReq() {
+        log.info(id + ": poll request received.  Send poll request to hardware.");
+        sendPollReq();
+    } // handlePollReq
+
+    protected void sendPollReq() {
+        // fixme: send gate poll request to hardware
+        log.info(id + ": poll request received");
+    } // sendPollReq
+
+
+    //------------------------------------------------------------
+    // handlePollAck
+    protected final void handlePollAck() {
+        log.info(id + ": poll ack received.  Send poll ack to PCS Core.");
+        pcsCore.send(new Msg(id, mbox, Msg.Type.PollAck, id + " is up!"));
+    } // handlePollAck
 
     private enum CollectorStatus {
         CollectorAvailable,

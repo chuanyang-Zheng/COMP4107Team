@@ -4,6 +4,7 @@ import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.Msg;
 import AppKickstarter.timer.Timer;
 
+import PCS.CollectorHandler.CollectorHandler;
 import PCS.PCSCore.PCSCore;
 import PCS.GateHandler.GateHandler;
 
@@ -18,6 +19,7 @@ public class PCSStarter extends AppKickstarter {
     protected Timer timer;
     protected PCSCore pcsCore;
     protected GateHandler gateHandler;
+    protected CollectorHandler collectorHandler;
     protected PayMachineHandler payHandler;
 
     //------------------------------------------------------------
@@ -55,6 +57,7 @@ public class PCSStarter extends AppKickstarter {
 	    timer = new Timer("timer", this);
 	    pcsCore = new PCSCore("PCSCore", this);
 	    gateHandler = new GateHandler("GateHandler", this);
+	    collectorHandler=new CollectorHandler("CollectorHandler",this);
 	    payHandler = new PayMachineHandler("PayMachineHandler",this);
 
 

@@ -69,6 +69,8 @@ public class PCSCore extends AppThread {
 		case CollectorValidRequest:
 			handleCollectorValidRequest(msg);
 			break;
+		case CollectorSolveProblem:
+			log.fine(id+": Collector Solve Problem Now. Collector Is Available Now!");
 
 		default:
 		    log.warning(id + ": unknown message type: [" + msg + "]");
