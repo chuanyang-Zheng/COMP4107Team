@@ -75,7 +75,9 @@ public class PCSCore extends AppThread {
 					handleCollectorValidRequest(msg);
 					break;
 				case CollectorSolveProblem:
+					gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
 					log.fine(id + ": Collector Solve Problem Now. Collector Is Available Now!");
+					log.info(id+": inform Exit Gate Open");
 					break;
 				default:
 					log.warning(id + ": unknown message type: [" + msg + "]");
