@@ -10,17 +10,21 @@ import java.util.ArrayList;
 //======================================================================
 // PCSCore
 public class PCSCore extends AppThread {
-    private MBox gateMBox;
+    private MBox entranceGateBox;
+    private MBox exitGateBox;
     private MBox collectorMbox;
     private MBox payMBox;
     private final int pollTime;
     private final int PollTimerID=1;
     private final int openCloseGateTime;		// for demo only!!!
     private final int OpenCloseGateTimerID=2;		// for demo only!!!
+	private final int collectorSolveProblemGateWaitTimeID=3;
     private boolean gateIsClosed = true;		// for demo only!!!
 	private ArrayList<Ticket> ticketList=new ArrayList<>();
 	private long exitTimeCoefficient=Long.parseLong(appKickstarter.getProperty("Ticket.exitTimeCoefficient"));
 	private float calculateFeeCoefficient=Float.parseFloat(appKickstarter.getProperty("Ticket.calculateFeeCoefficient"));
+	private int collectorSolveProblemGateWaitTime=Integer.parseInt(appKickstarter.getProperty("PCSCore.CollectorSolveProblemGateWaitTime"));
+	private int gateOpenTime=Integer.parseInt(appKickstarter.getProperty("Gate.GateOpenTime"));
 
 
     //------------------------------------------------------------
@@ -45,7 +49,8 @@ public class PCSCore extends AppThread {
 	Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);	// for demo only!!!
 	log.info(id + ": starting...");
 
-	gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+	entranceGateBox = appKickstarter.getThread("EntranceGateHandler").getMBox();
+	exitGateBox=appKickstarter.getThread("ExitGateHandler").getMBox();
 	collectorMbox = appKickstarter.getThread("CollectorHandler").getMBox();
 	payMBox = appKickstarter.getThread("PayMachineHandler").getMBox();
 	for (boolean quit = false; !quit;) {
@@ -60,12 +65,12 @@ public class PCSCore extends AppThread {
 					break;
 
 				case GateOpenReply:
-					log.info(id + ": Gate is opened.");
+					log.info(id + ": "+msg.getSender()+" is opened.");
 					gateIsClosed = false;
 					break;
 
 				case GateCloseReply:
-					log.info(id + ": Gate is closed.");
+					log.info(id + ": "+msg.getSender()+" is closed.");
 					gateIsClosed = true;
 					break;
 
@@ -81,9 +86,10 @@ public class PCSCore extends AppThread {
 					handleCollectorValidRequest(msg);
 					break;
 				case CollectorSolveProblem:
-					gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
+					exitGateBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
 					log.fine(id + ": Collector Solve Problem Now. Collector Is Available Now!");
 					log.info(id+": inform Exit Gate Open");
+					Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
 					break;
 				default:
 					log.warning(id + ": unknown message type: [" + msg + "]");
@@ -122,7 +128,8 @@ public class PCSCore extends AppThread {
 
 				ticketList.remove(Integer.parseInt(msg.getDetails()));
 				collectorMbox.send(new Msg(id,mbox, Msg.Type.CollectorPositive,""));
-				gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
+				exitGateBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
+				Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
 
 				// do something. Such as:
 				// delete the ticket.
@@ -149,20 +156,22 @@ public class PCSCore extends AppThread {
         switch (Timer.getTimesUpMsgTimerId(msg)) {
 	    case PollTimerID:
 		log.info("Poll: " + msg.getDetails());
-		gateMBox.send(new Msg(id, mbox, Msg.Type.Poll, ""));
+		entranceGateBox.send(new Msg(id, mbox, Msg.Type.Poll, ""));
 		Timer.setTimer(id, mbox, pollTime, PollTimerID);
 	        break;
 
-	    case OpenCloseGateTimerID:					// for demo only!!!
-	        if (gateIsClosed) {
-		    log.info(id + ": Open the gate now (for demo only!!!)");
-		    gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, ""));
-		} else {
-		    log.info(id + ": Close the gate now (for demo only!!!)");
-		    gateMBox.send(new Msg(id, mbox, Msg.Type.GateCloseRequest, ""));
-		}
-		Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);
-		break;
+//	    case OpenCloseGateTimerID:					// for demo only!!!
+//	        if (gateIsClosed) {
+//		    log.info(id + ": Open the gate now (for demo only!!!)");
+//		    entranceGateBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, ""));
+//		} else {
+//		    log.info(id + ": Close the gate now (for demo only!!!)");
+//		    entranceGateBox.send(new Msg(id, mbox, Msg.Type.GateCloseRequest, ""));
+//		}
+		case collectorSolveProblemGateWaitTimeID:
+			exitGateBox.send(new Msg(id,mbox, Msg.Type.GateCloseReply,"Close Gate"));
+			log.info(id+": Inform Exit Gate To Close");
+			break;
 
 	    default:
 	        log.severe(id + ": why am I receiving a timeout with timer id " + Timer.getTimesUpMsgTimerId(msg));

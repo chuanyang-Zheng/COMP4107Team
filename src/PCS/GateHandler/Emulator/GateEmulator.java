@@ -58,7 +58,7 @@ public class GateEmulator extends GateHandler {
 	gateEmulatorController.initialize(id, pcsStarter, log, this);
 	myStage.initStyle(StageStyle.DECORATED);
 	myStage.setScene(new Scene(root, 420, 470));
-	myStage.setTitle("Gate Emulator");
+	myStage.setTitle(id);
 	myStage.setResizable(false);
 	myStage.setOnCloseRequest((WindowEvent event) -> {
 	    pcsStarter.stopApp();

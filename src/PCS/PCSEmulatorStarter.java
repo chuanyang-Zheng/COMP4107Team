@@ -49,7 +49,8 @@ public class PCSEmulatorStarter extends PCSStarter {
         public void start(Stage primaryStage) {
 	    Timer timer = null;
 	    PCSCore pcsCore = null;
-	    GateEmulator gateEmulator = null;
+	    GateEmulator entranceGateEmulator = null;
+        GateEmulator exitGateEmulator = null;
         CollectorEmulator collectorEmulator=null;
 	    PayMachineEmulator payMachineEmulator = null;
 	    // create emulators
@@ -57,11 +58,13 @@ public class PCSEmulatorStarter extends PCSStarter {
 	        timer = new Timer("timer", pcsEmulatorStarter);
 	        pcsCore = new PCSCore("PCSCore", pcsEmulatorStarter);
             collectorEmulator=new CollectorEmulator("CollectorHandler",pcsEmulatorStarter);
-	        gateEmulator = new GateEmulator("GateHandler", pcsEmulatorStarter);
+	        entranceGateEmulator = new GateEmulator("EntranceGateHandler", pcsEmulatorStarter);
+            exitGateEmulator = new GateEmulator("ExitGateHandler", pcsEmulatorStarter);
             payMachineEmulator = new PayMachineEmulator("PayMachineHandler",pcsEmulatorStarter);
 
             // start emulator GUIs
-		gateEmulator.start();
+		entranceGateEmulator.start();
+		exitGateEmulator.start();
 		collectorEmulator.start();
 		payMachineEmulator.start();
 	    } catch (Exception e) {
@@ -71,14 +74,15 @@ public class PCSEmulatorStarter extends PCSStarter {
 	    }
 	    pcsEmulatorStarter.setTimer(timer);
 	    pcsEmulatorStarter.setPCSCore(pcsCore);
-	    pcsEmulatorStarter.setGateHandler(gateEmulator);
+	    pcsEmulatorStarter.setGateHandler(entranceGateEmulator);
+	    pcsEmulatorStarter.setGateHandler(exitGateEmulator);
 	    pcsEmulatorStarter.setCollectorHandler(collectorEmulator);
 	    pcsEmulatorStarter.setPayMachineHandler(payMachineEmulator);
 
 	    // start threads
 	    new Thread(timer).start();
 	    new Thread(pcsCore).start();
-	    new Thread(gateEmulator).start();
+	    new Thread(entranceGateEmulator).start();
 	    new Thread(collectorEmulator).start();
 	    new Thread(payMachineEmulator).start();
 	} // start
