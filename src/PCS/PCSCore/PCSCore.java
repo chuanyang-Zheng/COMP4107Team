@@ -26,6 +26,11 @@ public class PCSCore extends AppThread {
 	private int collectorSolveProblemGateWaitTime=Integer.parseInt(appKickstarter.getProperty("PCSCore.CollectorSolveProblemGateWaitTime"));
 	private int gateOpenTime=Integer.parseInt(appKickstarter.getProperty("Gate.GateOpenTime"));
 
+//	private long exitTimeCoefficient=0;
+//	private float calculateFeeCoefficient=0;
+//	private int collectorSolveProblemGateWaitTime=0;
+//	private int gateOpenTime=0;
+
 
     //------------------------------------------------------------
     // PCSCore
@@ -129,7 +134,7 @@ public class PCSCore extends AppThread {
 				ticketList.remove(Integer.parseInt(msg.getDetails()));
 				collectorMbox.send(new Msg(id,mbox, Msg.Type.CollectorPositive,""));
 				exitGateBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
-				Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
+//				Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
 
 				// do something. Such as:
 				// delete the ticket.
@@ -169,7 +174,7 @@ public class PCSCore extends AppThread {
 //		    entranceGateBox.send(new Msg(id, mbox, Msg.Type.GateCloseRequest, ""));
 //		}
 		case collectorSolveProblemGateWaitTimeID:
-			exitGateBox.send(new Msg(id,mbox, Msg.Type.GateCloseReply,"Close Gate"));
+			exitGateBox.send(new Msg(id,mbox, Msg.Type.GateCloseRequest,"Close Gate"));
 			log.info(id+": Inform Exit Gate To Close");
 			break;
 

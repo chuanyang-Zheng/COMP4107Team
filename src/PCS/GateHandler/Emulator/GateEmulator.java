@@ -55,7 +55,7 @@ public class GateEmulator extends GateHandler {
 	loader.setLocation(GateEmulator.class.getResource(fxmlName));
 	root = loader.load();
 	gateEmulatorController = (GateEmulatorController) loader.getController();
-	gateEmulatorController.initialize(id, pcsStarter, log, this);
+	gateEmulatorController.initialize(super.getID(), pcsStarter, log, this);
 	myStage.initStyle(StageStyle.DECORATED);
 	myStage.setScene(new Scene(root, 420, 470));
 	myStage.setTitle(id);

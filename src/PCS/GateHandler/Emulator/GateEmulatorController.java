@@ -31,7 +31,7 @@ public class GateEmulatorController {
         this.appKickstarter = appKickstarter;
 	this.log = log;
 	this.gateEmulator = gateEmulator;
-	this.gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+	this.gateMBox = appKickstarter.getThread(id).getMBox();
     } // initialize
 
 

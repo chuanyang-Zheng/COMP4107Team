@@ -83,6 +83,7 @@ public class PCSEmulatorStarter extends PCSStarter {
 	    new Thread(timer).start();
 	    new Thread(pcsCore).start();
 	    new Thread(entranceGateEmulator).start();
+	    new Thread(exitGateEmulator).start();
 	    new Thread(collectorEmulator).start();
 	    new Thread(payMachineEmulator).start();
 	} // start
