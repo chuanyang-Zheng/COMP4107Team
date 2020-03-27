@@ -55,10 +55,10 @@ public class PayMachineEmulator extends PayMachineHandler {
         loader.setLocation(PayMachineEmulator.class.getResource(fxmlName));
         root = loader.load();
         PayMachineController = (PayMachineController) loader.getController();
-        PayMachineController.initialize(id, pcsStarter, log, this);
+        PayMachineController.initialize(super.id, pcsStarter, log, this);
         myStage.initStyle(StageStyle.DECORATED);
         myStage.setScene(new Scene(root, 420, 470));
-        myStage.setTitle("PayMachine Emulator");
+        myStage.setTitle(id);
         myStage.setResizable(false);
         myStage.setOnCloseRequest((WindowEvent event) -> {
             pcsStarter.stopApp();

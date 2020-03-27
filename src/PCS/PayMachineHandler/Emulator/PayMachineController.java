@@ -31,7 +31,7 @@ public class PayMachineController {
         this.appKickstarter = appKickstarter;
         this.log = log;
         this.PayMachineEmulator = PayMachineEmulator;
-        this.gateMBox = appKickstarter.getThread("PayMachineHandler").getMBox();
+        this.gateMBox = appKickstarter.getThread(id).getMBox();
     } // initialize
 
 

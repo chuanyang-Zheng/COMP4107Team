@@ -196,7 +196,6 @@ public class Timer extends AppThread {
      * @return the timerID
      */
     public static int setTimer(String id, MBox mbox, long sleepTime, int timerID) {
-		System.out.println(id+" "+sleepTime+" "+timerID);
 	timerMBox.send(new Msg(id, mbox, Msg.Type.SetTimer, new TimerMsg(Msg.Type.SetTimer, timerID, sleepTime).getMsg()));
 	return timerID;
     } // setTimer

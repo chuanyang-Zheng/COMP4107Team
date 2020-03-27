@@ -50,8 +50,8 @@ public class PCSCore extends AppThread {
     // run
     public void run() {
 	Thread.currentThread().setName(id);
-	Timer.setTimer(id, mbox, pollTime, PollTimerID);
-	Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);	// for demo only!!!
+//	Timer.setTimer(id, mbox, pollTime, PollTimerID);
+//	Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);	// for demo only!!!
 	log.info(id + ": starting...");
 
 	entranceGateBox = appKickstarter.getThread("EntranceGateHandler").getMBox();
@@ -134,7 +134,7 @@ public class PCSCore extends AppThread {
 				ticketList.remove(Integer.parseInt(msg.getDetails()));
 				collectorMbox.send(new Msg(id,mbox, Msg.Type.CollectorPositive,""));
 				exitGateBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, "GateOpenReq"));
-//				Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
+				Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
 
 				// do something. Such as:
 				// delete the ticket.
