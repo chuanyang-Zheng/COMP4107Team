@@ -1,67 +1,75 @@
-200327-21:37:58 [INFO] -- 
-200327-21:37:58 [INFO] -- 
-200327-21:37:58 [INFO] -- ============================================================
-200327-21:37:58 [INFO] -- PCSStarter: Application Starting...
-200327-21:37:58 [FINE] -- PCSStarter: registering timer
-200327-21:37:58 [FINE] -- timer: created!
-200327-21:37:58 [FINE] -- PCSStarter: registering PCSCore
-200327-21:37:58 [FINE] -- PCSCore: created!
-200327-21:37:58 [FINE] -- PCSStarter: registering CollectorHandler
-200327-21:37:58 [FINE] -- CollectorHandler: created!
-200327-21:37:58 [FINE] -- PCSStarter: registering EntranceGateHandler
-200327-21:37:58 [FINE] -- EntranceGateHandler: created!
-200327-21:37:58 [FINE] -- PCSStarter: registering ExitGateHandler
-200327-21:37:58 [FINE] -- ExitGateHandler: created!
-200327-21:37:58 [FINE] -- PCSStarter: registering PayMachineHandler
-200327-21:37:58 [FINE] -- PayMachineHandler: created!
-200327-21:38:00 [INFO] -- EntranceGateHandler: starting...
-200327-21:38:00 [INFO] -- ExitGateHandler: starting...
-200327-21:38:00 [INFO] -- timer: starting...
-200327-21:38:00 [INFO] -- PCSCore: starting...
-200327-21:38:00 [INFO] -- CollectorHandler: starting...
-200327-21:38:00 [INFO] -- PayMachineHandler: starting...
-200327-21:38:59 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorValidRequest) -- {0}].
-200327-21:38:59 [INFO] -- CollectorHandler: collector valid request received
-200327-21:38:59 [FINE] -- CollectorHandler: Collector Status from CollectorAvailable-> CollectorWaitValidation
-200327-21:38:59 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorValidRequest) -- {0}].
-200327-21:38:59 [INFO] -- PCSCore Collector Valid Request Receive
-200327-21:38:59 [INFO] -- PCSCore valid ticket 0
-200327-21:38:59 [FINE] -- CollectorHandler: message received: [PCSCore (CollectorPositive) -- {}].
-200327-21:38:59 [INFO] -- CollectorHandler: collector receive positive validation
-200327-21:38:59 [FINE] -- ExitGateHandler: message received: [PCSCore (GateOpenRequest) -- {GateOpenReq}].
-200327-21:38:59 [FINE] -- CollectorHandler: Collector Status from CollectorWaitValidation-> CollectorAvailable
-200327-21:38:59 [FINE] -- [PCSCore PCSCore valid a true ticket. Get message {0}]
-200327-21:38:59 [INFO] -- ExitGateHandler: gate open request received
-200327-21:38:59 [INFO] -- ExitGateHandler: send signal to open the gate now.
-200327-21:38:59 [FINE] -- ExitGateHandlerEmulator: Gate open signal received.  [autoOpen is on]
-200327-21:38:59 [FINE] -- ExitGateHandlerEmulator: Gate open timer started.
-200327-21:38:59 [FINE] -- ExitGateHandler: gate status change: GateClosed --> GateOpening
-200327-21:39:01 [FINE] -- ExitGateHandler: message received: [Timer (TimesUp) -- {TimesUp 00001 0}].
-200327-21:39:01 [FINE] -- ExitGateHandlerEmulator: Times up received.
-200327-21:39:01 [FINE] -- ExitGateHandlerEmulator: Gate open timer is up.  [autoOpen is on]
-200327-21:39:01 [FINE] -- ExitGateHandlerEmulator: Send gate open reply
-200327-21:39:01 [FINE] -- ExitGateHandler: message received: [ExitGateHandlerEmulator (GateOpenReply) -- {Gate Open Reply}].
-200327-21:39:01 [INFO] -- ExitGateHandler: gate open reply received
-200327-21:39:01 [INFO] -- ExitGateHandler: inform PCS Core that gate has finished opening.
-200327-21:39:01 [FINE] -- ExitGateHandler: gate status change: GateOpening --> GateOpened
-200327-21:39:01 [FINE] -- PCSCore: message received: [ExitGateHandler (GateOpenReply) -- {}].
-200327-21:39:01 [INFO] -- PCSCore: ExitGateHandler is opened.
-200327-21:39:07 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- {TimesUp 00003 0}].
-200327-21:39:07 [INFO] -- ------------------------------------------------------------
-200327-21:39:07 [INFO] -- PCSCore: Inform Exit Gate To Close
-200327-21:39:07 [FINE] -- ExitGateHandler: message received: [PCSCore (GateCloseRequest) -- {Close Gate}].
-200327-21:39:07 [INFO] -- ExitGateHandler: gate close request received
-200327-21:39:07 [INFO] -- ExitGateHandler: send signal to close the gate now.
-200327-21:39:07 [FINE] -- ExitGateHandlerEmulator: Gate close signal received.  [autoClose is on]
-200327-21:39:07 [FINE] -- ExitGateHandlerEmulator: Gate close timer started.
-200327-21:39:07 [FINE] -- ExitGateHandler: gate status change: GateOpened --> GateClosing
-200327-21:39:08 [FINE] -- ExitGateHandler: message received: [Timer (TimesUp) -- {TimesUp 00002 0}].
-200327-21:39:08 [FINE] -- ExitGateHandlerEmulator: Times up received.
-200327-21:39:08 [FINE] -- ExitGateHandlerEmulator: Gate close timer is up.  [autoClose is on]
-200327-21:39:08 [FINE] -- ExitGateHandlerEmulator: Send gate close reply
-200327-21:39:08 [FINE] -- ExitGateHandler: message received: [ExitGateHandlerEmulator (GateCloseReply) -- {Gate Close Reply}].
-200327-21:39:08 [INFO] -- ExitGateHandler: gate close reply received
-200327-21:39:08 [INFO] -- ExitGateHandler: inform PCS Core that gate has finished closing.
-200327-21:39:08 [FINE] -- PCSCore: message received: [ExitGateHandler (GateCloseReply) -- {}].
-200327-21:39:08 [FINE] -- ExitGateHandler: gate status change: GateClosing --> GateClosed
-200327-21:39:08 [INFO] -- PCSCore: ExitGateHandler is closed.
+200331-20:33:36 [INFO] -- 
+200331-20:33:37 [INFO] -- 
+200331-20:33:37 [INFO] -- ============================================================
+200331-20:33:37 [INFO] -- PCSStarter: Application Starting...
+200331-20:33:37 [FINE] -- PCSStarter: registering timer
+200331-20:33:37 [FINE] -- timer: created!
+200331-20:33:37 [FINE] -- PCSStarter: registering PCSCore
+200331-20:33:37 [FINE] -- PCSCore: created!
+200331-20:33:37 [FINE] -- PCSStarter: registering CollectorHandler
+200331-20:33:37 [FINE] -- CollectorHandler: created!
+200331-20:33:37 [FINE] -- PCSStarter: registering EntranceGateHandler
+200331-20:33:37 [FINE] -- EntranceGateHandler: created!
+200331-20:33:37 [FINE] -- PCSStarter: registering ExitGateHandler
+200331-20:33:37 [FINE] -- ExitGateHandler: created!
+200331-20:33:37 [FINE] -- PCSStarter: registering PayMachineHandler
+200331-20:33:37 [FINE] -- PayMachineHandler: created!
+200331-20:33:38 [INFO] -- PCSCore: starting...
+200331-20:33:38 [INFO] -- EntranceGateHandler: starting...
+200331-20:33:38 [INFO] -- timer: starting...
+200331-20:33:38 [INFO] -- PayMachineHandler: starting...
+200331-20:33:38 [INFO] -- ExitGateHandler: starting...
+200331-20:33:38 [INFO] -- CollectorHandler: starting...
+200331-20:33:40 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorValidRequest) -- {}].
+200331-20:33:40 [INFO] -- CollectorHandler: collector valid request received
+200331-20:33:40 [WARNING] -- CollectorHandler: collector receive invalid message: []
+200331-20:33:40 [FINE] -- CollectorHandler: Collector Status from CollectorAvailable-> CollectorAvailable
+200331-20:33:48 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorValidRequest) -- {1}].
+200331-20:33:48 [INFO] -- CollectorHandler: collector valid request received
+200331-20:33:48 [FINE] -- CollectorHandler: Collector Status from CollectorAvailable-> CollectorWaitValidation
+200331-20:33:48 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorValidRequest) -- {1}].
+200331-20:33:48 [INFO] -- PCSCore Collector Valid Request Receive
+200331-20:33:48 [INFO] -- PCSCore valid ticket 1
+200331-20:33:48 [WARNING] -- PCSCore: Current time1585658028373 is larger than Exit time: -1
+200331-20:33:48 [WARNING] -- [PCSCore PCSCore valid a false ticket. Get message {1}]
+200331-20:33:48 [FINE] -- CollectorHandler: message received: [PCSCore (CollectorNegative) -- {}].
+200331-20:33:48 [INFO] -- CollectorHandler: collector receive negative validation
+200331-20:33:48 [WARNING] -- CollectorHandlerEmulator: The Ticket Is Wrong. Ring Alarm!
+200331-20:33:48 [FINE] -- CollectorHandler: Collector Status from CollectorWaitValidation-> CollectorWarning
+200331-20:33:52 [FINE] -- CollectorHandler: message received: [CollectorHandlerEmulator (CollectorSolveProblem) -- {Collector Solve Problem}].
+200331-20:33:52 [INFO] -- CollectorHandler: collector receive Problem-Solve Message
+200331-20:33:52 [FINE] -- CollectorHandlerEmulator: Already Solve Problem. Stop Alarm!
+200331-20:33:52 [INFO] -- CollectorHandler Inform PCSCore than already solve problem 
+200331-20:33:52 [FINE] -- PCSCore: message received: [CollectorHandler (CollectorSolveProblem) -- {}].
+200331-20:33:52 [FINE] -- CollectorHandler: Collector Status from CollectorWarning-> CollectorAvailable
+200331-20:33:52 [FINE] -- PCSCore: Collector Solve Problem Now. Collector Is Available Now!
+200331-20:33:52 [FINE] -- ExitGateHandler: message received: [PCSCore (GateOpenRequest) -- {GateOpenReq}].
+200331-20:33:52 [INFO] -- PCSCore: inform Exit Gate Open
+200331-20:33:52 [INFO] -- ExitGateHandler: gate open request received
+200331-20:33:52 [INFO] -- ExitGateHandler: send signal to open the gate now.
+200331-20:33:52 [FINE] -- ExitGateHandlerEmulator: Gate open signal received.  [autoOpen is on]
+200331-20:33:52 [FINE] -- ExitGateHandlerEmulator: Gate open timer started.
+200331-20:33:52 [FINE] -- ExitGateHandler: gate status change: GateClosed --> GateOpening
+200331-20:33:54 [FINE] -- ExitGateHandler: message received: [Timer (TimesUp) -- {TimesUp 00001 0}].
+200331-20:33:54 [FINE] -- ExitGateHandlerEmulator: Times up received.
+200331-20:33:54 [FINE] -- ExitGateHandlerEmulator: Gate open timer is up.  [autoOpen is on]
+200331-20:33:54 [FINE] -- ExitGateHandlerEmulator: Send gate open reply
+200331-20:33:54 [FINE] -- ExitGateHandler: message received: [ExitGateHandlerEmulator (GateOpenReply) -- {Gate Open Reply}].
+200331-20:33:54 [INFO] -- ExitGateHandler: gate open reply received
+200331-20:33:54 [INFO] -- ExitGateHandler: inform PCS Core that gate has finished opening.
+200331-20:33:54 [FINE] -- PCSCore: message received: [ExitGateHandler (GateOpenReply) -- {}].
+200331-20:33:54 [FINE] -- ExitGateHandler: gate status change: GateOpening --> GateOpened
+200331-20:33:54 [INFO] -- PCSCore: ExitGateHandler is opened.
+200331-20:33:58 [INFO] -- 
+200331-20:33:58 [INFO] -- 
+200331-20:33:58 [INFO] -- ============================================================
+200331-20:33:58 [INFO] -- PCSStarter: Application Stopping...
+200331-20:33:58 [FINE] -- ExitGateHandler: message received: [PCSStarter (Terminate) -- {Terminate now!}].
+200331-20:33:58 [INFO] -- timer: received terminate!
+200331-20:33:58 [FINE] -- PCSCore: message received: [PCSStarter (Terminate) -- {Terminate now!}].
+200331-20:33:58 [FINE] -- PCSStarter: unregistering ExitGateHandler
+200331-20:33:58 [FINE] -- PCSStarter: unregistering PCSCore
+200331-20:33:58 [INFO] -- ExitGateHandler: terminating...
+200331-20:33:58 [FINE] -- PCSStarter: unregistering timer
+200331-20:33:58 [INFO] -- PCSCore: terminating...
+200331-20:33:58 [INFO] -- timer: terminating...

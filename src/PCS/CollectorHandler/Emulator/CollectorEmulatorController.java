@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.util.logging.Logger;
@@ -19,6 +20,7 @@ public class CollectorEmulatorController {
     private CollectorEmulator collectorEmulator;
     private MBox collectorMBox;
     public TextArea collectorTextArea;
+    public TextArea collectorTextAreaInput;
 
     private int lineNo = 0;
 
@@ -35,7 +37,8 @@ public class CollectorEmulatorController {
 
         switch (btn.getText()) {
             case "Collector Valid Request":
-                collectorMBox.send(new Msg(id, null, Msg.Type.CollectorValidRequest,"0"));
+                collectorMBox.send(new Msg(id, null, Msg.Type.CollectorValidRequest,collectorTextAreaInput.getText()));
+                collectorTextAreaInput.setText("");
                 break;
 
             case "Collector Positive":
