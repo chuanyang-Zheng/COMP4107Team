@@ -96,6 +96,9 @@ public class PCSCore extends AppThread {
 					log.info(id+": inform Exit Gate Open");
 					Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
 					break;
+				case TicketFee:
+					SendTicketFee(msg.getDetails());
+					log.info(id+"PCS Sent the fee already");
 				default:
 					log.warning(id + ": unknown message type: [" + msg + "]");
 			}
@@ -121,6 +124,10 @@ public class PCSCore extends AppThread {
     		return false;
 		}
     	return true;
+	}
+	public void SendTicketFee(String TicketID){
+    	Ticket tmp = FindTicketByID(Integer.parseInt(TicketID));
+    	payMBox.send(new Msg(id,mbox,Msg.Type.TicketFee,Float.toString(tmp.getParkingFee())));
 	}
 
 	public void handleCollectorValidRequest(Msg msg){
@@ -184,7 +191,15 @@ public class PCSCore extends AppThread {
 	}
     } // handleTimesUp
 
-	public boolean validTicket(int ticketID){
+/** A Function to search a ticket by TicketID */
+	public Ticket FindTicketByID(int TargetID){
+    	for(Ticket i : ticketList)
+    		if(i.ticketID == TargetID)
+    			return i;
+    	log.warning(id+"No such Ticket =_= called" + TargetID);
+    	return new Ticket();
+	}
+	public boolean validTicket(int ticketID){ // To Cheung Yeung: 这里直接用FindByID吧  因为根据ID找Ticket 在很多情况要用
     	log.info(id+ " valid ticket "+ticketID);
     	for(int i=0;i<ticketList.size();i++){
     		if(ticketList.get(i).getTicketID()==ticketID){

@@ -7,7 +7,9 @@ import java.util.logging.Logger;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 
 import javax.swing.*;
@@ -49,8 +51,8 @@ public class PayMachineController {
                 gateMBox.send(new Msg(id, null, Msg.Type.TicketRequest, ticket_id));
                 break;
             case "Pay by Oct":
-                if(ticket_id.isEmpty())
-                    JOptionPane.showConfirmDialog(null,"Please Insert Ticket first :)");
+                if(ticket_id == null || ticket_id.isEmpty())
+                    new Alert(Alert.AlertType.ERROR, "Please insert first :)", new ButtonType[]{ButtonType.OK}).show();
                 else
                     gateMBox.send(new Msg(id, null, Msg.Type.PaymentACK, ticket_id));
                 break;

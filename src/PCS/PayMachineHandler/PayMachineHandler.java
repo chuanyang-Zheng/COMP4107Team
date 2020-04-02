@@ -50,7 +50,7 @@ public class PayMachineHandler extends AppThread {
         boolean quit = false;
 
         switch (msg.getType()) {
-            case GateOpenRequest:  handleGateOpenRequest();  break;
+            case TicketFee:  PushFee(msg.getDetails());  break;
             case GateCloseRequest: handleGateCloseRequest(); break;
             case GateOpenReply:	   handleGateOpenReply();    break;
             case GateCloseReply:   handleGateCloseReply();   break;
@@ -63,6 +63,12 @@ public class PayMachineHandler extends AppThread {
         return quit;
     } // processMsg
 
+//------------------------
+// Push FEE
+    protected void PushFee(String tmp){
+        float fee = Float.parseFloat(tmp);
+        log.info(id + "Parking Fee received :" + String.format("$ %.2f", fee));
+    }
 
     //------------------------------------------------------------
     // handleGateOpenRequest

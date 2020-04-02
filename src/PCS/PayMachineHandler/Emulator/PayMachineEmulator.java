@@ -3,6 +3,7 @@ package PCS.PayMachineHandler.Emulator;
 import AppKickstarter.misc.*;
 import AppKickstarter.timer.Timer;
 
+import PCS.PCSCore.Ticket;
 import PCS.PCSStarter;
 
 import PCS.PayMachineHandler.PayMachineHandler;
@@ -74,8 +75,8 @@ public class PayMachineEmulator extends PayMachineHandler {
         boolean quit = false;
 
         switch (msg.getType()) {
-            case TimesUp:
-//                handleTimesUp(msg);
+            case TicketFee:
+                FeeTransfer(msg.getDetails());
                 break;
 
             case GateEmulatorAutoOpenToggle:
@@ -95,5 +96,10 @@ public class PayMachineEmulator extends PayMachineHandler {
         }
         return quit;
     } // processMsg
+    private void FeeTransfer(String mymsg){
+        float fee = Float.parseFloat(mymsg);
+        PayMachineController.appendTextArea("[User need to]: " + fee);
+        log.fine(id + ": " + mymsg);
+    }
 
 } // GateEmulator
