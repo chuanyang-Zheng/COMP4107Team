@@ -8,12 +8,14 @@
     <children>
         <AnchorPane prefHeight="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#buttonPressed" prefHeight="30.0" prefWidth="120.0" text="Insert the ticket" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="0.0"><font><Font size="12.0" /></font></Button>
-           </children>
+                <Button mnemonicParsing="false" onAction="#buttonPressed" prefHeight="30.0" prefWidth="120.0" text="Insert the ticket" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="0.0"><font><Font size="12.0" /></font></Button>
+                <Button mnemonicParsing="false" onAction="#buttonPressed" prefHeight="30.0" prefWidth="120.0" text="Pay by Oct" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="0.0" ><font><Font size="12.0" /></font></Button>
+            </children>
         </AnchorPane>
-        <AnchorPane prefHeight="30.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+
+        <AnchorPane prefHeight="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0">
             <children>
-                <Button mnemonicParsing="false" onAction="#buttonPressed" prefHeight="30.0" prefWidth="120.0" text="Pay by Oct" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="50.0" ><font><Font size="12.0" /></font></Button>
+            <TextArea fx:id="PayMachineTextAreaInput" editable="true" layoutX="20.0" layoutY="20" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
             </children>
         </AnchorPane>
         <TextArea fx:id="gateTextArea" editable="false" layoutX="20.0" layoutY="169.0" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="150" />

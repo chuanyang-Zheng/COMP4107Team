@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
+import javax.swing.*;
+
 
 //======================================================================
 // GateEmulatorController
@@ -20,9 +22,9 @@ public class PayMachineController {
     private PayMachineEmulator PayMachineEmulator;
     private MBox gateMBox;
     public TextArea gateTextArea;
-
+    public TextArea PayMachineTextAreaInput;
     private int lineNo = 0;
-
+    private String ticket_id;
 
     //------------------------------------------------------------
     // initialize
@@ -41,11 +43,16 @@ public class PayMachineController {
         Button btn = (Button) actionEvent.getSource();
 
         switch (btn.getText()) {
-            case "Gate Open Request":
-                gateMBox.send(new Msg(id, null, Msg.Type.GateOpenRequest, "GateOpenReq"));
+            case "Insert the ticket":
+                ticket_id = PayMachineTextAreaInput.getText();
+                PayMachineTextAreaInput.setText("");
+                gateMBox.send(new Msg(id, null, Msg.Type.TicketRequest, ticket_id));
                 break;
-            case "Gate Open Reply":
-                gateMBox.send(new Msg(id, null, Msg.Type.GateOpenReply, "GateOpenReply"));
+            case "Pay by Oct":
+                if(ticket_id.isEmpty())
+                    JOptionPane.showConfirmDialog(null,"Please Insert Ticket first :)");
+                else
+                    gateMBox.send(new Msg(id, null, Msg.Type.PaymentACK, ticket_id));
                 break;
             default:
                 log.warning(id + ": unknown button: [" + btn.getText() + "]");
