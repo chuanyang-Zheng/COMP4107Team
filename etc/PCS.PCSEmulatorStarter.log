@@ -1,24 +1,76 @@
-200402-22:59:32 [INFO] -- 
-200402-22:59:32 [INFO] -- 
-200402-22:59:32 [INFO] -- ============================================================
-200402-22:59:32 [INFO] -- PCSStarter: Application Starting...
-200402-22:59:33 [FINE] -- PCSStarter: registering timer
-200402-22:59:33 [FINE] -- timer: created!
-200402-22:59:33 [FINE] -- PCSStarter: registering PCSCore
-200402-22:59:33 [FINE] -- PCSCore: created!
-200402-22:59:33 [FINE] -- PCSStarter: registering CollectorHandler
-200402-22:59:33 [FINE] -- CollectorHandler: created!
-200402-22:59:33 [FINE] -- PCSStarter: registering EntranceGateHandler
-200402-22:59:33 [FINE] -- EntranceGateHandler: created!
-200402-22:59:33 [FINE] -- PCSStarter: registering ExitGateHandler
-200402-22:59:33 [FINE] -- ExitGateHandler: created!
-200402-22:59:33 [FINE] -- PCSStarter: registering PayMachineHandler
-200402-22:59:33 [FINE] -- PayMachineHandler: created!
-200402-22:59:34 [INFO] -- timer: starting...
-200402-22:59:34 [INFO] -- PCSCore: starting...
-200402-22:59:34 [INFO] -- EntranceGateHandler: starting...
-200402-22:59:34 [INFO] -- ExitGateHandler: starting...
-200402-22:59:34 [INFO] -- CollectorHandler: starting...
-200402-22:59:34 [INFO] -- PayMachineHandler: starting...
-200402-22:59:41 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {123123123}].
-200402-22:59:43 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (PaymentACK) -- {123123123}].
+200403-01:56:34 [INFO] -- 
+200403-01:56:34 [INFO] -- 
+200403-01:56:34 [INFO] -- ============================================================
+200403-01:56:34 [INFO] -- PCSStarter: Application Starting...
+200403-01:56:34 [FINE] -- PCSStarter: registering timer
+200403-01:56:34 [FINE] -- timer: created!
+200403-01:56:34 [FINE] -- PCSStarter: registering PCSCore
+200403-01:56:34 [FINE] -- PCSCore: created!
+200403-01:56:34 [FINE] -- PCSStarter: registering CollectorHandler
+200403-01:56:34 [FINE] -- CollectorHandler: created!
+200403-01:56:34 [FINE] -- PCSStarter: registering EntranceGateHandler
+200403-01:56:34 [FINE] -- EntranceGateHandler: created!
+200403-01:56:34 [FINE] -- PCSStarter: registering ExitGateHandler
+200403-01:56:34 [FINE] -- ExitGateHandler: created!
+200403-01:56:34 [FINE] -- PCSStarter: registering PayMachineHandler
+200403-01:56:34 [FINE] -- PayMachineHandler: created!
+200403-01:56:36 [INFO] -- CollectorHandler: starting...
+200403-01:56:36 [INFO] -- PayMachineHandler: starting...
+200403-01:56:36 [INFO] -- timer: starting...
+200403-01:56:36 [INFO] -- ExitGateHandler: starting...
+200403-01:56:36 [INFO] -- EntranceGateHandler: starting...
+200403-01:56:36 [INFO] -- PCSCore: starting...
+200403-01:56:41 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:41 [FINE] -- PCSCore: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:41 [INFO] -- PCSCore:PCS Sent the fee already
+200403-01:56:41 [INFO] -- PCSCore:Payment ACK received
+200403-01:56:41 [FINE] -- PayMachineHandler: message received: [PCSCore (TicketFee) -- {0.0}].
+200403-01:56:41 [FINE] -- PCSCore:Payment Updated
+200403-01:56:41 [FINE] -- PayMachineHandlerEmulator: 0.0
+200403-01:56:45 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:45 [FINE] -- PCSCore: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:45 [INFO] -- PCSCore:PCS Sent the fee already
+200403-01:56:45 [INFO] -- PCSCore:Payment ACK received
+200403-01:56:45 [FINE] -- PCSCore:Payment Updated
+200403-01:56:45 [FINE] -- PayMachineHandler: message received: [PCSCore (TicketFee) -- {0.0}].
+200403-01:56:45 [FINE] -- PayMachineHandlerEmulator: 0.0
+200403-01:56:50 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:50 [FINE] -- PCSCore: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:50 [INFO] -- PCSCore:PCS Sent the fee already
+200403-01:56:50 [INFO] -- PCSCore:Payment ACK received
+200403-01:56:50 [FINE] -- PayMachineHandler: message received: [PCSCore (TicketFee) -- {0.0}].
+200403-01:56:50 [FINE] -- PCSCore:Payment Updated
+200403-01:56:50 [FINE] -- PayMachineHandlerEmulator: 0.0
+200403-01:56:53 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:53 [FINE] -- PCSCore: message received: [PayMachineHandler (TicketRequest) -- {00000}].
+200403-01:56:53 [INFO] -- PCSCore:PCS Sent the fee already
+200403-01:56:53 [FINE] -- PayMachineHandler: message received: [PCSCore (TicketFee) -- {0.0}].
+200403-01:56:53 [INFO] -- PCSCore:Payment ACK received
+200403-01:56:53 [FINE] -- PayMachineHandlerEmulator: 0.0
+200403-01:56:53 [FINE] -- PCSCore:Payment Updated
+200403-01:56:54 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (PaymentACK) -- {00000}].
+200403-01:56:57 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {3}].
+200403-01:56:57 [FINE] -- PCSCore: message received: [PayMachineHandler (TicketRequest) -- {3}].
+200403-01:56:57 [INFO] -- PCSCore:PCS Sent the fee already
+200403-01:56:57 [WARNING] -- PCSCoreNo such Ticket =_= called3
+200403-01:56:57 [INFO] -- PCSCore:Payment ACK received
+200403-01:56:57 [WARNING] -- PCSCoreNo such Ticket =_= called3
+200403-01:56:57 [FINE] -- PCSCore:Payment Updated
+200403-01:56:57 [FINE] -- PayMachineHandler: message received: [PCSCore (TicketFee) -- {-1.0}].
+200403-01:56:57 [FINE] -- PayMachineHandlerEmulator: -1.0
+200403-01:57:05 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {2}].
+200403-01:57:05 [FINE] -- PCSCore: message received: [PayMachineHandler (TicketRequest) -- {2}].
+200403-01:57:05 [INFO] -- PCSCore:PCS Sent the fee already
+200403-01:57:05 [WARNING] -- PCSCoreNo such Ticket =_= called2
+200403-01:57:05 [INFO] -- PCSCore:Payment ACK received
+200403-01:57:05 [FINE] -- PayMachineHandler: message received: [PCSCore (TicketFee) -- {-1.0}].
+200403-01:57:05 [WARNING] -- PCSCoreNo such Ticket =_= called2
+200403-01:57:05 [FINE] -- PCSCore:Payment Updated
+200403-01:57:05 [FINE] -- PayMachineHandlerEmulator: -1.0
+200403-01:57:12 [FINE] -- PayMachineHandler: message received: [PayMachineHandler (TicketRequest) -- {0}].
+200403-01:57:12 [FINE] -- PCSCore: message received: [PayMachineHandler (TicketRequest) -- {0}].
+200403-01:57:12 [INFO] -- PCSCore:PCS Sent the fee already
+200403-01:57:12 [FINE] -- PayMachineHandler: message received: [PCSCore (TicketFee) -- {0.0}].
+200403-01:57:12 [FINE] -- PayMachineHandlerEmulator: 0.0
+200403-01:57:12 [INFO] -- PCSCore:Payment ACK received
+200403-01:57:12 [FINE] -- PCSCore:Payment Updated

@@ -67,39 +67,15 @@ public class PayMachineEmulator extends PayMachineHandler {
         });
         myStage.show();
     } // GateEmulator
-
-
-    //------------------------------------------------------------
-    // processMsg
-    protected final boolean processMsg(Msg msg) {
-        boolean quit = false;
-
-        switch (msg.getType()) {
-            case TicketFee:
-                FeeTransfer(msg.getDetails());
-                break;
-
-            case GateEmulatorAutoOpenToggle:
-//                handleGateEmulatorAutoOpenToggle();
-                break;
-
-            case GateEmulatorAutoCloseToggle:
-//                handleGateEmulatorAutoCloseToggle();
-                break;
-
-            case GateEmulatorAutoPollToggle:
-//                handleGateEmulatorAutoPollToggle();
-                break;
-
-            default:
-//                quit = super.processMsg(msg);
-        }
-        return quit;
-    } // processMsg
-    private void FeeTransfer(String mymsg){
+    @Override
+    protected void FeeReceive(String mymsg){
         float fee = Float.parseFloat(mymsg);
-        PayMachineController.appendTextArea("[User need to]: " + fee);
+        PayMachineController.appendTextArea("You need to pay $" + fee);
         log.fine(id + ": " + mymsg);
+    }
+    protected void SendPaymentACK(String mymsg){
+        PayMachineController.appendTextArea("Thank you for payment!!!!");
+//        log.fine(id + ": " + mymsg);
     }
 
 } // GateEmulator

@@ -3,14 +3,13 @@ package PCS.PayMachineHandler.Emulator;
 import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.MBox;
 import AppKickstarter.misc.Msg;
+
+import java.util.Optional;
 import java.util.logging.Logger;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import javax.swing.*;
 
@@ -22,7 +21,7 @@ public class PayMachineController {
     private AppKickstarter appKickstarter;
     private Logger log;
     private PayMachineEmulator PayMachineEmulator;
-    private MBox gateMBox;
+    private MBox payMBox;
     public TextArea gateTextArea;
     public TextArea PayMachineTextAreaInput;
     private int lineNo = 0;
@@ -35,7 +34,7 @@ public class PayMachineController {
         this.appKickstarter = appKickstarter;
         this.log = log;
         this.PayMachineEmulator = PayMachineEmulator;
-        this.gateMBox = appKickstarter.getThread(id).getMBox();
+        this.payMBox = appKickstarter.getThread(id).getMBox();
     } // initialize
 
 
@@ -46,15 +45,24 @@ public class PayMachineController {
 
         switch (btn.getText()) {
             case "Insert the ticket":
-                ticket_id = PayMachineTextAreaInput.getText();
-                PayMachineTextAreaInput.setText("");
-                gateMBox.send(new Msg(id, null, Msg.Type.TicketRequest, ticket_id));
+                TextInputDialog dialog = new TextInputDialog("00000");
+                dialog.setTitle("Please Input Ticket ID");
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent())
+                    ticket_id = result.get();
+
+                if(ticket_id == null || ticket_id.isEmpty())
+                    new Alert(Alert.AlertType.ERROR, "Please input valid ID :(", new ButtonType[]{ButtonType.OK}).show();
+                else {
+                    PayMachineTextAreaInput.setText("");
+                    payMBox.send(new Msg(id, null, Msg.Type.TicketRequest, ticket_id));
+                }
                 break;
             case "Pay by Oct":
                 if(ticket_id == null || ticket_id.isEmpty())
                     new Alert(Alert.AlertType.ERROR, "Please insert first :)", new ButtonType[]{ButtonType.OK}).show();
                 else
-                    gateMBox.send(new Msg(id, null, Msg.Type.PaymentACK, ticket_id));
+                    payMBox.send(new Msg(id, null, Msg.Type.PaymentACK, ticket_id));
                 break;
             default:
                 log.warning(id + ": unknown button: [" + btn.getText() + "]");

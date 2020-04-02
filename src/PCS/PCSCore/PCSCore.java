@@ -96,9 +96,13 @@ public class PCSCore extends AppThread {
 					log.info(id+": inform Exit Gate Open");
 					Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
 					break;
-				case TicketFee:
+				case TicketRequest:
+					log.info(id + ":PCS Sent the fee already");
 					SendTicketFee(msg.getDetails());
-					log.info(id+"PCS Sent the fee already");
+				case PaymentACK:
+					log.info(id + ":Payment ACK received");
+					PayStateUpdate(msg.getDetails());
+					break;
 				default:
 					log.warning(id + ": unknown message type: [" + msg + "]");
 			}
@@ -124,6 +128,11 @@ public class PCSCore extends AppThread {
     		return false;
 		}
     	return true;
+	}
+	public void PayStateUpdate(String TicketID){
+    	Ticket tmp = FindTicketByID(Integer.parseInt(TicketID));
+    	tmp.setParkingFee(0);
+    	log.fine(id+ ":Payment Updated");
 	}
 	public void SendTicketFee(String TicketID){
     	Ticket tmp = FindTicketByID(Integer.parseInt(TicketID));
@@ -197,6 +206,8 @@ public class PCSCore extends AppThread {
     		if(i.ticketID == TargetID)
     			return i;
     	log.warning(id+"No such Ticket =_= called" + TargetID);
+    	Ticket nullticket = new Ticket();
+    	nullticket.setParkingFee(-9999);
     	return new Ticket();
 	}
 	public boolean validTicket(int ticketID){ // To Cheung Yeung: 这里直接用FindByID吧  因为根据ID找Ticket 在很多情况要用
