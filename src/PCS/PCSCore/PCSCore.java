@@ -43,6 +43,9 @@ public class PCSCore extends AppThread {
 	Ticket falseTicket=new Ticket();
 	ticketList.add(trueTicket);
 	ticketList.add(falseTicket);
+	Ticket EricVIPTick = new Ticket();
+	EricVIPTick.setParkingFee(9999999);
+	ticketList.add(EricVIPTick);
     } // PCSCore
 
 
@@ -99,6 +102,7 @@ public class PCSCore extends AppThread {
 				case TicketRequest:
 					log.info(id + ":PCS Sent the fee already");
 					SendTicketFee(msg.getDetails());
+					break;
 				case PaymentACK:
 					log.info(id + ":Payment ACK received");
 					PayStateUpdate(msg.getDetails());
@@ -130,13 +134,13 @@ public class PCSCore extends AppThread {
     	return true;
 	}
 	public void PayStateUpdate(String TicketID){
-    	Ticket tmp = FindTicketByID(Integer.parseInt(TicketID));
-    	tmp.setParkingFee(0);
+    	int z = FindTicketByID(Integer.parseInt(TicketID));
+    	ticketList.get(z).setParkingFee(0);
     	log.fine(id+ ":Payment Updated");
 	}
 	public void SendTicketFee(String TicketID){
-    	Ticket tmp = FindTicketByID(Integer.parseInt(TicketID));
-    	payMBox.send(new Msg(id,mbox,Msg.Type.TicketFee,Float.toString(tmp.getParkingFee())));
+    	int z = FindTicketByID(Integer.parseInt(TicketID));
+    	payMBox.send(new Msg(id,mbox,Msg.Type.TicketFee,TicketID + "," + Float.toString(ticketList.get(z).getParkingFee()) + "," + Long.toString(ticketList.get(z).getEnterTime())));
 	}
 
 	public void handleCollectorValidRequest(Msg msg){
@@ -201,14 +205,12 @@ public class PCSCore extends AppThread {
     } // handleTimesUp
 
 /** A Function to search a ticket by TicketID */
-	public Ticket FindTicketByID(int TargetID){
-    	for(Ticket i : ticketList)
-    		if(i.ticketID == TargetID)
+	public int FindTicketByID(int TargetID){
+    	for(int i = 0; i <ticketList.size();++i)
+    		if(ticketList.get(i).ticketID == TargetID)
     			return i;
     	log.warning(id+"No such Ticket =_= called" + TargetID);
-    	Ticket nullticket = new Ticket();
-    	nullticket.setParkingFee(-9999);
-    	return new Ticket();
+    	return -1;
 	}
 	public boolean validTicket(int ticketID){ // To Cheung Yeung: 这里直接用FindByID吧  因为根据ID找Ticket 在很多情况要用
     	log.info(id+ " valid ticket "+ticketID);

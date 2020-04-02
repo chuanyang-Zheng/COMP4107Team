@@ -74,8 +74,8 @@ public class PayMachineHandler extends AppThread {
 
     }
     protected void SendPaymentACK(String mymsg){
-        pcsCore.send(new Msg(id, mbox, Msg.Type.PaymentACK, mymsg));
         log.fine(id+ ":ticket"+ mymsg + "Paid already.");
+
     }
     //------------------------------------------------------------
     // handleGateOpenRequest

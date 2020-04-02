@@ -23,9 +23,11 @@ public class PayMachineController {
     private PayMachineEmulator PayMachineEmulator;
     private MBox payMBox;
     public TextArea gateTextArea;
-    public TextArea PayMachineTextAreaInput;
+    public TextArea TicketIDField;
+    public TextArea FeeField;
+    public TextArea EnterField;
     private int lineNo = 0;
-    private String ticket_id;
+    private String ticket_id,ticket_fee,ticket_enter;
 
     //------------------------------------------------------------
     // initialize
@@ -45,17 +47,16 @@ public class PayMachineController {
 
         switch (btn.getText()) {
             case "Insert the ticket":
-                TextInputDialog dialog = new TextInputDialog("00000");
+                TextInputDialog dialog = new TextInputDialog("0");
                 dialog.setTitle("Please Input Ticket ID");
                 Optional<String> result = dialog.showAndWait();
                 if (result.isPresent())
                     ticket_id = result.get();
-
                 if(ticket_id == null || ticket_id.isEmpty())
                     new Alert(Alert.AlertType.ERROR, "Please input valid ID :(", new ButtonType[]{ButtonType.OK}).show();
                 else {
-                    PayMachineTextAreaInput.setText("");
                     payMBox.send(new Msg(id, null, Msg.Type.TicketRequest, ticket_id));
+
                 }
                 break;
             case "Pay by Oct":
@@ -76,4 +77,10 @@ public class PayMachineController {
     public void appendTextArea(String status) {
         Platform.runLater(() -> gateTextArea.appendText(String.format("[%04d] %s\n", ++lineNo, status)));
     } // appendTextArea
+    public void updateTicket(String tmpid,String tmpfee, String tmpenter){
+        ticket_fee = tmpfee; ticket_enter = tmpenter;
+        TicketIDField.setText(tmpid);
+        FeeField.setText(ticket_fee);
+        EnterField.setText(ticket_enter);
+    }
 } // GateEmulatorController

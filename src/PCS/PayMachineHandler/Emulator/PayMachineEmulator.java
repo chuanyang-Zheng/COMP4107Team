@@ -69,13 +69,18 @@ public class PayMachineEmulator extends PayMachineHandler {
     } // GateEmulator
     @Override
     protected void FeeReceive(String mymsg){
-        float fee = Float.parseFloat(mymsg);
+        String []str = mymsg.split(",");
+        float fee = Float.parseFloat(str[1]);
         PayMachineController.appendTextArea("You need to pay $" + fee);
         log.fine(id + ": " + mymsg);
+        PayMachineController.updateTicket(str[0],str[1],str[2]);
     }
     protected void SendPaymentACK(String mymsg){
+        log.fine(id+ ":ticket"+ mymsg + "Paid already.");
         PayMachineController.appendTextArea("Thank you for payment!!!!");
-//        log.fine(id + ": " + mymsg);
+        pcsCore.send(new Msg(id, mbox, Msg.Type.PaymentACK, mymsg));
+        pcsCore.send(new Msg(id, mbox, Msg.Type.TicketRequest, mymsg));
     }
+
 
 } // GateEmulator
