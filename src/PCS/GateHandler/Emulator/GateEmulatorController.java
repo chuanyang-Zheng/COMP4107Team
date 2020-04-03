@@ -21,7 +21,7 @@ public class GateEmulatorController {
     private MBox gateMBox;
     public TextArea gateTextArea;
 
-    private int lineNo = 0;
+	private int lineNo = 0;
 
 
     //------------------------------------------------------------

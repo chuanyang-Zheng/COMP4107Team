@@ -3,6 +3,7 @@ package PCS.PayMachineHandler.Emulator;
 import AppKickstarter.misc.*;
 import AppKickstarter.timer.Timer;
 
+import PCS.PCSCore.Ticket;
 import PCS.PCSStarter;
 
 import PCS.PayMachineHandler.PayMachineHandler;
@@ -66,34 +67,20 @@ public class PayMachineEmulator extends PayMachineHandler {
         });
         myStage.show();
     } // GateEmulator
+    @Override
+    protected void FeeReceive(String mymsg){
+        String []str = mymsg.split(",");
+        float fee = Float.parseFloat(str[1]);
+        PayMachineController.appendTextArea("You need to pay $" + fee);
+        log.fine(id + ": " + mymsg);
+        PayMachineController.updateTicket(str[0],str[1],str[2]);
+    }
+    protected void SendPaymentACK(String mymsg){
+        log.fine(id+ ":ticket"+ mymsg + "Paid already.");
+        PayMachineController.appendTextArea("Thank you for payment!!!!");
+        pcsCore.send(new Msg(id, mbox, Msg.Type.PaymentACK, mymsg));
+        pcsCore.send(new Msg(id, mbox, Msg.Type.TicketRequest, mymsg));
+    }
 
-
-    //------------------------------------------------------------
-    // processMsg
-    protected final boolean processMsg(Msg msg) {
-        boolean quit = false;
-
-        switch (msg.getType()) {
-            case TimesUp:
-//                handleTimesUp(msg);
-                break;
-
-            case GateEmulatorAutoOpenToggle:
-//                handleGateEmulatorAutoOpenToggle();
-                break;
-
-            case GateEmulatorAutoCloseToggle:
-//                handleGateEmulatorAutoCloseToggle();
-                break;
-
-            case GateEmulatorAutoPollToggle:
-//                handleGateEmulatorAutoPollToggle();
-                break;
-
-            default:
-//                quit = super.processMsg(msg);
-        }
-        return quit;
-    } // processMsg
 
 } // GateEmulator

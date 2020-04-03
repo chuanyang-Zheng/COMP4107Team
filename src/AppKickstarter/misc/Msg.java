@@ -100,6 +100,9 @@ public class Msg {
     /** Toggling Collector Emulator AutoClose */	CollectorPositive,
     /** Toggling Collector Emulator AutoPoll */	CollectorNegative,
     /** Toggling Collector Emulator AutoClose */	CollectorSolveProblem,
+    /** Loading Ticket request*/       TicketRequest,
+    /** Send the Ticket Info */ TicketFee,
+    /** Payment Finished successfully*/ PaymentACK,
 
 
 

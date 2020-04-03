@@ -43,6 +43,9 @@ public class PCSCore extends AppThread {
 	Ticket falseTicket=new Ticket();
 	ticketList.add(trueTicket);
 	ticketList.add(falseTicket);
+	Ticket EricVIPTick = new Ticket();
+	EricVIPTick.setParkingFee(9999999);
+	ticketList.add(EricVIPTick);
     } // PCSCore
 
 
@@ -96,6 +99,14 @@ public class PCSCore extends AppThread {
 					log.info(id+": inform Exit Gate Open");
 					Timer.setTimer(id,mbox,gateOpenTime+collectorSolveProblemGateWaitTime,collectorSolveProblemGateWaitTimeID);
 					break;
+				case TicketRequest:
+					log.info(id + ":PCS Sent the fee already");
+					SendTicketFee(msg.getDetails());
+					break;
+				case PaymentACK:
+					log.info(id + ":Payment ACK received");
+					PayStateUpdate(msg.getDetails());
+					break;
 				default:
 					log.warning(id + ": unknown message type: [" + msg + "]");
 			}
@@ -121,6 +132,15 @@ public class PCSCore extends AppThread {
     		return false;
 		}
     	return true;
+	}
+	public void PayStateUpdate(String TicketID){
+    	int z = FindTicketByID(Integer.parseInt(TicketID));
+    	ticketList.get(z).setParkingFee(0);
+    	log.fine(id+ ":Payment Updated");
+	}
+	public void SendTicketFee(String TicketID){
+    	int z = FindTicketByID(Integer.parseInt(TicketID));
+    	payMBox.send(new Msg(id,mbox,Msg.Type.TicketFee,TicketID + "," + Float.toString(ticketList.get(z).getParkingFee()) + "," + Long.toString(ticketList.get(z).getEnterTime())));
 	}
 
 	public void handleCollectorValidRequest(Msg msg){
@@ -184,7 +204,15 @@ public class PCSCore extends AppThread {
 	}
     } // handleTimesUp
 
-	public boolean validTicket(int ticketID){
+/** A Function to search a ticket by TicketID */
+	public int FindTicketByID(int TargetID){
+    	for(int i = 0; i <ticketList.size();++i)
+    		if(ticketList.get(i).ticketID == TargetID)
+    			return i;
+    	log.warning(id+"No such Ticket =_= called" + TargetID);
+    	return -1;
+	}
+	public boolean validTicket(int ticketID){ // To Cheung Yeung: 这里直接用FindByID吧  因为根据ID找Ticket 在很多情况要用
     	log.info(id+ " valid ticket "+ticketID);
     	for(int i=0;i<ticketList.size();i++){
     		if(ticketList.get(i).getTicketID()==ticketID){

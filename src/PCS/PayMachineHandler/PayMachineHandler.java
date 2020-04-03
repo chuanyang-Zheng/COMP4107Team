@@ -13,6 +13,7 @@ public class PayMachineHandler extends AppThread {
     protected final MBox pcsCore;
     private GateStatus gateStatus;
     private PayMachineEmulator PayEmu;
+    protected float TicketFee;
 
     //------------------------------------------------------------
     // GateHandler
@@ -50,20 +51,32 @@ public class PayMachineHandler extends AppThread {
         boolean quit = false;
 
         switch (msg.getType()) {
-            case GateOpenRequest:  handleGateOpenRequest();  break;
-            case GateCloseRequest: handleGateCloseRequest(); break;
-            case GateOpenReply:	   handleGateOpenReply();    break;
+            case TicketRequest:  SendRequest(msg.getDetails());  break;
+            case TicketFee: FeeReceive(msg.getDetails()); break;
+            case PaymentACK:	   SendPaymentACK(msg.getDetails());    break;
             case GateCloseReply:   handleGateCloseReply();   break;
             case Poll:		   handlePollReq();	     break;
             case PollAck:	   handlePollAck();	     break;
             case Terminate:	   quit = true;		     break;
-            default:
-                log.warning(id + ": unknown message type: [" + msg + "]");
+
         }
         return quit;
     } // processMsg
 
+//------------------------
+// Push FEE
+    protected void SendRequest(String mymsg){
+        pcsCore.send(new Msg(id, mbox, Msg.Type.TicketRequest, mymsg));
+        TicketFee = Float.parseFloat(mymsg);
+    }
+    protected void FeeReceive(String mymsg){
+        TicketFee = Float.parseFloat(mymsg);
 
+    }
+    protected void SendPaymentACK(String mymsg){
+        log.fine(id+ ":ticket"+ mymsg + "Paid already.");
+
+    }
     //------------------------------------------------------------
     // handleGateOpenRequest
     protected final void handleGateOpenRequest() {
